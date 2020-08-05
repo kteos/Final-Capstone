@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import VuePapaParse from 'vue-papa-parse'
 
 Vue.use(Vuex)
+Vue.use(VuePapaParse)
 
 /*
  * The authorization header is set for axios when you login but what happens when you come back or
