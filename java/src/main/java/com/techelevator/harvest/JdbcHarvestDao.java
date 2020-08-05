@@ -20,15 +20,15 @@ public class JdbcHarvestDao implements HarvestDao {
 
 		for (Harvest harvest2 : harvest) {
 			String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest Where crop = ?";
-			SqlRowSet crop = jdbcTemplate.queryForRowSet(select, harvest2.getCrop());
+			SqlRowSet crop = jdbcTemplate.queryForRowSet(select, harvest2.getCrop().toLowerCase());
 			if( crop.next()) {
 				String update = "UPDATE harvest SET  direct_seed_to_harvest_time = ? WHERE crop  = ?";
-				jdbcTemplate.update(update, harvest2.getDirectSeedToHarvestTime(), harvest2.getCrop());
+				jdbcTemplate.update(update, harvest2.getDirectSeedToHarvestTime(), harvest2.getCrop().toLowerCase());
 				
 				
 			}else {
 				String sql = "INSERT INTO harvest (id, crop, direct_seed_to_harvest_time) VALUES (default, ?, ?) returning id";
-				SqlRowSet row = jdbcTemplate.queryForRowSet(sql, harvest2.getCrop(), harvest2.getDirectSeedToHarvestTime());
+				SqlRowSet row = jdbcTemplate.queryForRowSet(sql, harvest2.getCrop().toLowerCase(), harvest2.getDirectSeedToHarvestTime());
 				while (row.next()) {
 					harvest2.setId(row.getInt("id"));
 				}
