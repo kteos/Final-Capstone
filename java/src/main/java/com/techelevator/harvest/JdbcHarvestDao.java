@@ -1,5 +1,6 @@
 package com.techelevator.harvest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,19 +19,42 @@ public class JdbcHarvestDao implements HarvestDao {
 	public void createHarvests(List<Harvest> harvest) {
 
 		for (Harvest harvest2 : harvest) {
-			String sql = "INSERT INTO harvest (id, crop, direct_seed_to_harvest_time) VALUES (default, ?, ?) returning id";
-			SqlRowSet row = jdbcTemplate.queryForRowSet(sql, harvest2.getCrop(), harvest2.getDirectSeedToHarvestTime());
-			while (row.next()) {
-				harvest2.setId(row.getInt("id"));
+			String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest Where crop = ?";
+			SqlRowSet crop = jdbcTemplate.queryForRowSet(select, harvest2.getCrop());
+			if( crop.next()) {
+				String update = "UPDATE harvest SET  direct_seed_to_harvest_time = ? WHERE crop  = ?";
+				jdbcTemplate.update(update, harvest2.getDirectSeedToHarvestTime(), harvest2.getCrop());
+				
+				
+			}else {
+				String sql = "INSERT INTO harvest (id, crop, direct_seed_to_harvest_time) VALUES (default, ?, ?) returning id";
+				SqlRowSet row = jdbcTemplate.queryForRowSet(sql, harvest2.getCrop(), harvest2.getDirectSeedToHarvestTime());
+				while (row.next()) {
+					harvest2.setId(row.getInt("id"));
+				}
+				
 			}
+			
+			
+			
 
 		}
 
 	}
 	
-	private List<String> cropNames(){
-		 names = new List<String>();
-		return names;
+	public  List<Harvest> cropNames(){
+		List<Harvest> crops = new ArrayList<Harvest>();
+		String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest";
+		SqlRowSet rows = jdbcTemplate.queryForRowSet(select);
+		
+		while(rows.next()) {
+			Harvest harvest= new Harvest();
+			harvest.setId(rows.getInt("id"));
+			harvest.setCrop(rows.getString("crop"));
+			harvest.setDirectSeedToHarvestTime(rows.getInt("direct_seed_to_harvest_time"));
+			crops.add(harvest);
+		}
+		return crops;
 	}
 }
 
