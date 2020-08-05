@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import HarvestInfo from '@/services/HarvestInfo'
+
 export default {
     name: "file-input",
     data() {
@@ -20,13 +22,16 @@ export default {
             this.$papa.parse(file, {
                 header: true,
                 skipEmptyLines: true,
-                complete: function (results) {
-                    console.log(results);
-                    results.data.forEach(h => {
-                        this.harvest = h;
-                    });
-                }
-            });
+                complete: (results => {
+                    this.harvest = results.data;
+                    HarvestInfo.addSeedToHarvestTimes(this.harvest).then(response => {
+                        if (response.status == 201) {
+                            console.log('successful');
+                        }
+
+                    })
+                })
+            })
         }
     }
 
