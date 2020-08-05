@@ -5,6 +5,10 @@ public class Harvest {
 	private String crop;
 	private int directSeedToHarvestTime;
 	
+	public Harvest ( ) {
+		
+	}
+	
 	public Harvest (String crop, int directSeedToHarvestTime) {
 		this.crop = crop;
 		this.directSeedToHarvestTime = directSeedToHarvestTime;

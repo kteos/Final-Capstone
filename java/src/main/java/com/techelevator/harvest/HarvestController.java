@@ -1,12 +1,11 @@
 package com.techelevator.harvest;
-import java.io.FileNotFoundException;
-import java.security.Principal;
 import java.util.List;
 
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,13 +13,20 @@ public class HarvestController {
 
 	private HarvestDao dao;
 	
+
+	
 	public HarvestController(HarvestDao dao) {
 		this.dao = dao;
 	}
-
+	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(path = "/harvest/upload", method = RequestMethod.POST)
-	public void uploadHarvests(@RequestBody String path) throws FileNotFoundException {
-		dao.createHarvests(path);
+	public void uploadHarvests(@RequestBody List<Harvest> harvest )  {
+		dao.createHarvests( harvest );
+	}
+	
+	@RequestMapping( path = "/harvest", method = RequestMethod.GET)
+	public List<Harvest> listAllCrops(){
+		return dao.cropNames();
 	}
 	
 }

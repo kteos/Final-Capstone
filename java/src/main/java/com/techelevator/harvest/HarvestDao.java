@@ -1,7 +1,11 @@
 package com.techelevator.harvest;
 
-import java.io.FileNotFoundException;
+import java.util.List;
 
 public interface HarvestDao {
-	void createHarvests(String path) throws FileNotFoundException;
+	void createHarvests( List<Harvest> harvest );
+	public  List<Harvest> cropNames();
 }
+
+
+

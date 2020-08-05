@@ -1,39 +1,60 @@
 package com.techelevator.harvest;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JdbcHarvestDao implements HarvestDao{
-//	String filePath = "harvestTest.csv";
+public class JdbcHarvestDao implements HarvestDao {
+
 	private JdbcTemplate jdbcTemplate;
-	
+
 	public JdbcHarvestDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
-	public void createHarvests(String path) throws FileNotFoundException{
-//		path = "/Users/zkolker/Final_Capstone/team-charlie-java-blue-capstone/java/harvestTest.csv";
-		File file = new File(path);
-		try(Scanner harvestList = new Scanner(file)){
-			String currentFile = harvestList.nextLine();
-			String[] splitLines = currentFile.split("\\|");
-			Harvest harvest = new Harvest(splitLines[0], Integer.parseInt(splitLines[1]));
-			String sql = "INSERT INTO harvest (id, crop, direct_seed_to_harvest_time) VALUES (default, ?, ?) returning id";
-			SqlRowSet row = jdbcTemplate.queryForRowSet(sql, harvest.getCrop(), harvest.getDirectSeedToHarvestTime());
-			while(row.next()) {
-				harvest.setId(row.getInt("id"));
-			}
-		}
-			
-		
-	}
+	public void createHarvests(List<Harvest> harvest) {
 
+		for (Harvest harvest2 : harvest) {
+			String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest Where crop = ?";
+			SqlRowSet crop = jdbcTemplate.queryForRowSet(select, harvest2.getCrop());
+			if( crop.next()) {
+				String update = "UPDATE harvest SET  direct_seed_to_harvest_time = ? WHERE crop  = ?";
+				jdbcTemplate.update(update, harvest2.getDirectSeedToHarvestTime(), harvest2.getCrop());
+				
+				
+			}else {
+				String sql = "INSERT INTO harvest (id, crop, direct_seed_to_harvest_time) VALUES (default, ?, ?) returning id";
+				SqlRowSet row = jdbcTemplate.queryForRowSet(sql, harvest2.getCrop(), harvest2.getDirectSeedToHarvestTime());
+				while (row.next()) {
+					harvest2.setId(row.getInt("id"));
+				}
+				
+			}
+			
+			
+			
+
+		}
+
+	}
+	
+	public  List<Harvest> cropNames(){
+		List<Harvest> crops = new ArrayList<Harvest>();
+		String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest";
+		SqlRowSet rows = jdbcTemplate.queryForRowSet(select);
+		
+		while(rows.next()) {
+			Harvest harvest= new Harvest();
+			harvest.setId(rows.getInt("id"));
+			harvest.setCrop(rows.getString("crop"));
+			harvest.setDirectSeedToHarvestTime(rows.getInt("direct_seed_to_harvest_time"));
+			crops.add(harvest);
+		}
+		return crops;
+	}
 }
+
+
