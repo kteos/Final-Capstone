@@ -13,16 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class HarvestController {
 
 	private HarvestDao dao;
-	private Path path;
 	
-	public HarvestController(HarvestDao dao, Path path) {
+	public HarvestController(HarvestDao dao) {
 		this.dao = dao;
-		this.path = path;
 	}
 
 	@RequestMapping(path = "/harvest/upload", method = RequestMethod.POST)
-	public void uploadHarvests(@RequestBody String patha) throws FileNotFoundException {
-		dao.createHarvests(path.getPath(), patha);
+	public void uploadHarvests(@RequestBody String path) throws FileNotFoundException {
+		dao.createHarvests(path);
 	}
 	
 }

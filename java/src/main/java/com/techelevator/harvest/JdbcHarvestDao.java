@@ -19,7 +19,7 @@ public class JdbcHarvestDao implements HarvestDao{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public void createHarvests(String path, String patha) throws FileNotFoundException{
+	public void createHarvests(String path) throws FileNotFoundException{
 //		path = "/Users/zkolker/Final_Capstone/team-charlie-java-blue-capstone/java/harvestTest.csv";
 		File file = new File(path);
 		try(Scanner harvestList = new Scanner(file)){
