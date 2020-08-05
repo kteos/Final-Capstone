@@ -13,17 +13,16 @@ public class HarvestController {
 
 	private HarvestDao dao;
 	
+
 	
 	public HarvestController(HarvestDao dao) {
 		this.dao = dao;
-		
 	}
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(path = "/harvest/upload", method = RequestMethod.POST)
 	public void uploadHarvests(@RequestBody List<Harvest> harvest )  {
 		dao.createHarvests( harvest );
 	}
-	
 	
 	@RequestMapping( path = "/harvest", method = RequestMethod.GET)
 	public List<Harvest> listAllCrops(){

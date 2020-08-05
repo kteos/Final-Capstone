@@ -15,7 +15,6 @@ public class JdbcHarvestDao implements HarvestDao {
 	public JdbcHarvestDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
 	public void createHarvests(List<Harvest> harvest) {
 
 		for (Harvest harvest2 : harvest) {
