@@ -25,5 +25,10 @@ public class ExpirationController {
 	public void uplodExpiration(@RequestBody List<Expiration> expirations) {
 		dao.createExpiration(expirations);
 	}
+	
+	@RequestMapping( path = "/expiration", method=RequestMethod.GET)
+	public List<Expiration> listAllExpirations(){
+		return dao.getExpirations();
+	}
 
 }

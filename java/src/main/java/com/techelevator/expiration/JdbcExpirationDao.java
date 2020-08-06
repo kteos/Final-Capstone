@@ -1,5 +1,6 @@
 package com.techelevator.expiration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -40,5 +41,24 @@ public class JdbcExpirationDao implements ExpirationDao {
 	
 		
 	}
+
+
+
+	@Override
+	public List<Expiration> getExpirations() {
+		List<Expiration> fullList = new ArrayList<Expiration>();
+		String getCrops = "select harvest.crop, expiration.days_to_expire from harvest join harvest_expiration on harvest.id = harvest_expiration.harvest_id join expiration on harvest_expiration.expiration_id = expiration.id";
+		SqlRowSet rows =  jd.queryForRowSet(getCrops);
+		while( rows.next() ) {
+			Expiration ex = new Expiration();
+			ex.setCrop(rows.getString("crop"));
+			ex.setDaysToExpire(rows.getInt("days_to_expire"));
+			fullList.add(ex);
+		}
+		
+		return fullList;
+	}
+	
+	
 
 }
