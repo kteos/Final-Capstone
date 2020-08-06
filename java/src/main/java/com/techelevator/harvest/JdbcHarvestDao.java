@@ -1,8 +1,5 @@
 package com.techelevator.harvest;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -17,6 +14,7 @@ public class JdbcHarvestDao implements HarvestDao {
 	}
 	
 	public void createHarvests(Harvest[] harvest) {
+		
 
 		for (Harvest harvest2 : harvest) {
 			String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest Where crop = ?";
