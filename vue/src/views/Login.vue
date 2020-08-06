@@ -21,7 +21,7 @@
         v-model="user.username"
         required
         autofocus
-      />
+      /><br>
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -30,9 +30,9 @@
         placeholder="Password"
         v-model="user.password"
         required
-      />
+      /><br><button type="submit">Sign in</button><br><br>
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      
     </form>
   </div>
 </template>
@@ -40,9 +40,9 @@
 <script>
 import authService from "../services/AuthService";
 
+
 export default {
   name: "login",
-  components: {},
   data() {
     return {
       user: {
@@ -74,3 +74,13 @@ export default {
   }
 };
 </script>
+
+<style>
+div > #nav{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+</style>

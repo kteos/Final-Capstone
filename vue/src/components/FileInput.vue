@@ -1,5 +1,6 @@
 <template>
   <div>
+      
       <p>Upload Harvest File:</p>
       <input type = "file" v-on:change="readFile"/>
   </div>
@@ -24,6 +25,7 @@ export default {
                 skipEmptyLines: true,
                 complete: (results => {
                     this.harvest = results.data;
+                    console.log(this.harvest)
                     HarvestInfo.addSeedToHarvestTimes(this.harvest).then(response => {
                         if (response.status == 201) {
                             console.log('successful');

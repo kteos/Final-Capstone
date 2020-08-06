@@ -40,20 +40,20 @@ public class JdbcHarvestDao implements HarvestDao {
 
 	}
 	
-//	public  List<Harvest> cropNames(){
-//		List<Harvest> crops = new ArrayList<Harvest>();
-//		String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest";
-//		SqlRowSet rows = jdbcTemplate.queryForRowSet(select);
-//		
-//		while(rows.next()) {
-//			Harvest harvest= new Harvest();
-//			harvest.setId(rows.getInt("id"));
-//			harvest.setCrop(rows.getString("crop"));
-//			harvest.setDirectSeedToHarvestTime(rows.getInt("direct_seed_to_harvest_time"));
-//			crops.add(harvest);
-//		}
-//		return crops;
-//	}
+	public  List<Harvest> cropNames(){
+		List<Harvest> crops = new ArrayList<Harvest>();
+		String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest";
+		SqlRowSet rows = jdbcTemplate.queryForRowSet(select);
+		
+		while(rows.next()) {
+			Harvest harvest= new Harvest();
+			harvest.setId(rows.getInt("id"));
+			harvest.setCrop(rows.getString("crop"));
+			harvest.setDirectSeedToHarvestTime(rows.getInt("direct_seed_to_harvest_time"));
+			crops.add(harvest);
+		}
+		return crops;
+	}
 }
 
 

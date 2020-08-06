@@ -22,7 +22,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    harvest: []
+    harvest: [],
+    harvests: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -43,6 +44,9 @@ export default new Vuex.Store({
     },
     POST_HARVESTS(state, harvest) {
       state.harvest = harvest;
+    },
+    SET_HARVESTS(state, data){
+      state.harvests = data
     }
   }
 })

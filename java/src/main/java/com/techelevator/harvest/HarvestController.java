@@ -26,9 +26,9 @@ public class HarvestController {
 		dao.createHarvests( harvest );
 	}
 	
-//	@RequestMapping( path = "/harvest", method = RequestMethod.GET)
-//	public List<Harvest> listAllCrops(){
-//		return dao.cropNames();
-//	}
+	@RequestMapping( path = "/harvest", method = RequestMethod.GET)
+	public List<Harvest> listAllCrops(){
+		return dao.cropNames();
+	}
 	
 }
