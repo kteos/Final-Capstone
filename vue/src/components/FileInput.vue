@@ -1,38 +1,42 @@
 <template>
-
-  <div><form v-on:submit.prevent="readFile(file)">
-      <label for="csv"></label>
-      <input type="file" name="csv" id="csv"/>
-      <input type="submit" />
-      </form>
+  <div>
+      
+      <p>Upload Harvest File:</p>
+      <input type = "file" v-on:change="readFile"/>
   </div>
+
 </template>
 
 <script>
+import HarvestInfo from '@/services/HarvestInfo'
+
 export default {
-    data: function () {
+    name: "file-input",
+    data() {
         return {
-            file: "",
-            availability: {}
+            harvest: []
         }
     },
     methods: {
         readFile() {
-            /* return first object in FileList */
             var file = event.target.files[0];
             this.$papa.parse(file, {
                 header: true,
-                complete: function (results) {
-                    this.availability = results.data;
-                    console.log(this.availability);
-                }
-            });
+                skipEmptyLines: true,
+                complete: (results => {
+                    this.harvest = results.data;
+                    console.log(this.harvest)
+                    HarvestInfo.addSeedToHarvestTimes(this.harvest).then(response => {
+                        if (response.status == 201) {
+                            console.log('successful');
+                        }
+
+                    })
+                })
+            })
         }
-        // ,
-        // getFile(){
-        //     return this.file = csv;
-        // }
     }
+
 }
 </script>
 

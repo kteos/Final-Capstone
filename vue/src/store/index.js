@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import VuePapaParse from 'vue-papa-parse'
 
 Vue.use(Vuex)
+Vue.use(VuePapaParse)
 
 /*
  * The authorization header is set for axios when you login but what happens when you come back or
@@ -19,7 +21,9 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    harvest: [],
+    harvests: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +41,12 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    POST_HARVESTS(state, harvest) {
+      state.harvest = harvest;
+    },
+    SET_HARVESTS(state, data){
+      state.harvests = data
     }
   }
 })
