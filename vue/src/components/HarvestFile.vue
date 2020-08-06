@@ -11,7 +11,7 @@
 import HarvestInfo from '@/services/HarvestInfo'
 
 export default {
-    name: "file-input",
+    name: "harvest-file",
     data() {
         return {
             harvest: []

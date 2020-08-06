@@ -5,20 +5,20 @@
     <span>making your day to day easier</span>
     </div>
     <div  class="harvest">
-    <file-input />
+    <harvest-file />
     <harvests />
     </div>
   </div>
 </template>
 
 <script>
-import FileInput from '@/components/FileInput'
+import HarvestFile from '@/components/HarvestFile'
 import Harvests from '@/components/Harvests'
 
 export default {
   name: "home",
   components: {
-    FileInput,
+    HarvestFile,
     Harvests
   }
 };

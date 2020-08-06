@@ -1,15 +1,17 @@
 <template>
-  <div class="div.container">
-    <table>
+  <div>
+    <table class="container">
       <tr>
         <th>Id</th>
         <th>Crop</th>
         <th>Seed to Harvest Time</th>
+        <th></th>
       </tr>
       <tr v-for="harvest in this.$store.state.harvests" :key="harvest.id">
         <td>{{harvest.id}}</td>
         <td>{{harvest.crop}}</td>
         <td>{{harvest.directSeedToHarvestTime}}</td>
+        <td><a>Edit</a><a>Delete</a></td>
       </tr>
     </table>
   </div>
@@ -36,10 +38,18 @@ export default {
 
 <style>
 table > tr:nth-child(even){
-    color: #F40058;
+    background-color: #F40058;
 }
 
-#div.container{
-    background-color: aliceblue;
+table{
+    display: block;
+    padding: 10px;
 }
+
+.container tr,
+.container td{
+    display: flex;
+    justify-content: space-between;
+}
+
 </style>
