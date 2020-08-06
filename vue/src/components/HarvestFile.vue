@@ -1,5 +1,6 @@
 <template>
   <div>
+      
       <p>Upload Harvest File:</p>
       <input type = "file" v-on:change="readFile"/>
   </div>
@@ -10,7 +11,7 @@
 import HarvestInfo from '@/services/HarvestInfo'
 
 export default {
-    name: "file-input",
+    name: "harvest-file",
     data() {
         return {
             harvest: []
@@ -24,6 +25,7 @@ export default {
                 skipEmptyLines: true,
                 complete: (results => {
                     this.harvest = results.data;
+                    console.log(this.harvest)
                     HarvestInfo.addSeedToHarvestTimes(this.harvest).then(response => {
                         if (response.status == 201) {
                             console.log('successful');

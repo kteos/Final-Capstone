@@ -7,6 +7,17 @@ create table harvest(
         
         constraint pk_id primary key (id)
 );
+create table expiration(
+        id serial primary key,
+        days_to_expire int
+        );
+
+create table harvest_expiration(
+                expiration_id int,
+                harvest_id int,
+                constraint fk_expiration_id foreign key (expiration_id) references expiration(id),
+                constraint fk_harvest_id foreign key (harvest_id) references harvest(id)
+);
 
 insert into harvest values (default, 'corn', 90);
 
