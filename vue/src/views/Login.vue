@@ -34,15 +34,19 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
+    <file-input />
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
+import fileInput from "@/components/FileInput"
 
 export default {
   name: "login",
-  components: {},
+  components: {
+    fileInput
+  },
   data() {
     return {
       user: {
