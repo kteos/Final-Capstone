@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import com.techelevator.harvest.Harvest;
 
 @Component
 public class JdbcTransplantDao implements TransplantDao {
@@ -56,6 +55,13 @@ public class JdbcTransplantDao implements TransplantDao {
 			transplantList.add(transplant);
 		}
 		return transplantList;
+	}
+	
+
+	public Transplant updateTransplant(Transplant transplant) {
+		String update = "UPDATE transplant SET  crop = ?, direct_seed_to_transplant_time = ?, transplant_to_harvest_time = ? WHERE id = ?";
+		jdbcTemplate.update(update, transplant.getCrop(), transplant.getDirectSeedToTransplantTime(), transplant.getTransplantToHarvestTime(), transplant.getId());
+		return transplant;
 	}
 
 }

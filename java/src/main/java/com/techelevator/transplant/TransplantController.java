@@ -29,5 +29,9 @@ public class TransplantController {
 		return dao.listTransplant();
 	}
 	
+	@RequestMapping(path="/transplant/update", method=RequestMethod.POST)
+	public Transplant updateTransplant(@RequestBody Transplant transplant)  {
+		return dao.updateTransplant(transplant);
+	}
 	
 }
