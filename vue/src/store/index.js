@@ -55,6 +55,9 @@ export default new Vuex.Store({
     },
     SET_EXPIRATIONS(state, data){
       state.expirations = data;
+    },
+    SET_CURRENT_HARVEST(state, data){
+      state.harvest = data;
     }
   }
 })

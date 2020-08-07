@@ -12,23 +12,62 @@
         <td>{{harvest.crop}}</td>
         <td>{{harvest.directSeedToHarvestTime}}</td>
         <td>
-            <a class ="editDelete">Edit</a> 
+            <a class ="editDelete" v-on:click="handleSelectedItem(harvest)">Edit</a> 
             <a class ="editDelete">Delete</a>
         </td>
       </tr>
     </table>
+    <form>
+    <label for="crop">Crop: </label>
+    <input type="text" name="crop" id="crop" :value="computedCrop"/><br>
+    <label for="seedToHarvestTime">Seed to Harvest: </label>
+    <input type="number" name="seedToHarvestTime" id="seedToHarvestTime" :value="computedSeedHarvest" style="width:40px;">
+    <input type="submit">
+    </form>
   </div>
 </template>
 
 <script>
 import HarvestInfo from "@/services/HarvestInfo";
 export default {
+    data(){
+        return {
+            selectedHarvest: [
+                {
+                    id:null
+                },
+                {
+                    crop:null
+                },
+                {
+                    directSeedToHarvestTime: null
+                }
+            ],
+            computedCrop: null,
+            computedSeedHarvest: null
+        }
+    },
       name: "harvests",
       methods: {
         retrieveAllHarvests() {
           HarvestInfo.getAllHarvests().then(response => {
             this.$store.commit("SET_HARVESTS", response.data);
           });
+        },
+        handleSelectedItem(harvest){
+            this.selectedHarvest = [
+                {
+                    id:harvest.id
+                },
+                {
+                    crop:harvest.crop
+                },
+                {
+                    directSeedToHarvestTime: harvest.directSeedToHarvestTime
+                }
+            ]
+            this.computedCrop = harvest.crop;
+            this.computedSeedHarvest = harvest.directSeedToHarvestTime;
         }
       },
     
@@ -39,7 +78,14 @@ export default {
   computed: {
       harvestsCurrent(){
           return this.$store.state.harvests;
+      },
+      computeSelectedItem(){
+          return this.selectedHarvest;
+      },
+      computeCrop(){
+          return this.computedCrop;
       }
+      
   }
 };
 </script>
