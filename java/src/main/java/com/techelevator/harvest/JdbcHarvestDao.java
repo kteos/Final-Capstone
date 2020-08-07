@@ -55,6 +55,13 @@ public class JdbcHarvestDao implements HarvestDao {
 		}
 		return crops;
 	}
+
+	@Override
+	public Harvest updateHarvest(Harvest harvest) {
+		String update = "UPDATE harvest SET  crop = ?, direct_seed_to_harvest_time = ? WHERE id = ?";
+		jdbcTemplate.update(update, harvest.getCrop(), harvest.getDirectSeedToHarvestTime(), harvest.getId());
+		return harvest;
+	}
 }
 
 
