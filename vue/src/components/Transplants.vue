@@ -89,8 +89,8 @@ export default {
             const newTransplantData = {
                 id: this.id,
                 crop: this.computedCrop,
-                directSeedToTransplantTime: this.directSeedToTransplantTime,
-                transplantToHarvestTime: this.transplantToHarvestTime
+                directSeedToTransplantTime: this.computedDirectSeedToTransplant,
+                transplantToHarvestTime: this.computedTransplantToHarvestTime
             }
             TransplantService.updateTransplant(newTransplantData).then(response => {
             this.$store.commit("SET_TRANSPLANTS", response.data)
