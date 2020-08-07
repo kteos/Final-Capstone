@@ -81,7 +81,7 @@ export default {
             this.id = transplant.id;
             this.computedCrop = transplant.crop;
             this.computedDirectSeedToTransplant = transplant.directSeedToTransplantTime;
-            this.transplantToHarvestTime = transplant.transplantToHarvestTime;
+            this.computedTransplantToHarvestTime = transplant.transplantToHarvestTime;
             
         },
         updateTransplants(){
