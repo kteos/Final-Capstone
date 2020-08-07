@@ -7,7 +7,7 @@
         <th>Transplant To Harvest Time</th>
         <th></th>
       </tr>
-      <tr v-for="transplant in transplantsCurrent" :key="transplant.id">
+      <tr v-for="transplant in transplants" :key="transplant.id">
         <td>{{transplant.crop}}</td>
         <td>{{transplant.directSeedToTransplantTime}}</td>
         <td>{{transplant.transplantToHarvestTime}}</td>
@@ -53,7 +53,8 @@ export default {
             computedDirectSeedToTransplant: null,
             computedTransplantToHarvestTime: null,
             id: null,
-            isHidden: false
+            isHidden: false,
+            transplants: []
         }
       },
       methods: {
@@ -100,12 +101,18 @@ export default {
             this.selectedTransplant.crop = this.computedCrop;
             this.selectedTransplant.directSeedToTransplantTime = this.directSeedToTransplantTime;
             this.selectedTransplant.transplantToHarvestTime = this.transplantToHarvestTime;
+        },
+        getAllCurrentTransplants(){
+          TransplantService.getAllTransplants().then((response) => {
+            this.transplants = response.data;
+          })
         }
       },
 
 
   created(){
       this.retrieveAllTransplants();
+      this.getAllCurrentTransplants();
   },
   computed: {
       transplantsCurrent(){
@@ -120,6 +127,11 @@ export default {
       computedId(){
           return this.id;
       }
+  },
+  watch:{
+    transplants: function(){
+      this.getAllCurrentTransplants();
+    }
   }
 };
 </script>

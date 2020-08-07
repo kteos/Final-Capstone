@@ -6,7 +6,7 @@
         <th>Days to Expire</th>
         <th></th>
       </tr>
-      <tr v-for="expiration in expirationsCurrent" :key="expiration.id">
+      <tr v-for="expiration in expirations" :key="expiration.id">
         <td>{{expiration.crop}}</td>
         <td>{{expiration.daysToExpire}}</td>
         <td>
@@ -44,7 +44,8 @@ export default {
             computedCrop: null,
             computedDays: null,
             id: null,
-            isHidden: false
+            isHidden: false,
+            expirations: []
         }
     },
       name: "expirations",
@@ -86,12 +87,18 @@ export default {
         updateSelectedItem(){
             this.selectedExpiration.crop = this.computedCrop;
             this.selectedExpiration.daysToExpire = this.computedDays;
+        },
+        getAllCurrentExpirations(){
+            ExpirationService.getAllExpirations().then((response)=>{
+                this.expirations = response.data;
+            })
         }
       },
     
   
   created(){
       this.retrieveAllExpirations();
+      this.getAllCurrentExpirations();
   },
   computed: {
       expirationsCurrent(){
@@ -106,25 +113,16 @@ export default {
       computedId(){
           return this.id;
       }
+  },
+  watch:{
+      expirations: function(){
+          this.getAllCurrentExpirations();
+      }
   }
 };
 </script>
 
 <style>
-table > tr:nth-child(even){
-    background-color: #F40058;
-}
-
-table{
-    display: block;
-    padding: 10px;
-}
-
-.container tr,
-.container td{
-    display: flex;
-    justify-content: space-between;
-}
 
 .editDelete{
     cursor: pointer;

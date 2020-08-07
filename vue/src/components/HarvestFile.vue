@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="upload">
       
-      <p>Upload Harvest File:</p>
-      <input type = "file" v-on:change="readFile"/>
+      <div>Upload Harvest File:</div>
+      <input type = "file" v-on:change="setFile"/>
+      <button v-on:click.prevent="readFile">Upload</button>
+      
   </div>
 
 </template>
@@ -14,13 +16,13 @@ export default {
     name: "harvest-file",
     data() {
         return {
-            harvest: []
+            harvest: [],
+            files: []
         }
     },
     methods: {
         readFile() {
-            var file = event.target.files[0];
-            this.$papa.parse(file, {
+            this.$papa.parse(this.files, {
                 header: true,
                 skipEmptyLines: true,
                 complete: (results => {
@@ -34,6 +36,9 @@ export default {
                     })
                 })
             })
+        },
+        setFile(){
+            this.files = event.target.files[0];
         }
     }
 
@@ -41,5 +46,9 @@ export default {
 </script>
 
 <style>
+
+.upload{
+    padding: 10px;
+}
 
 </style>

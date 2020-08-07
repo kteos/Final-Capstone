@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="upload">
       
-      <p>Upload Transplant File:</p>
-      <input type = "file" v-on:change="readTransplantFile"/>
+      <div>Upload Transplant File:</div>
+      <input type = "file" v-on:change="setFile"/>
+      <button v-on:click.prevent="readTransplantFile">Upload</button>
   </div>
 
 </template>
@@ -14,13 +15,13 @@ export default {
     name: "transplant-file",
     data() {
         return {
-            transplant: []
+            transplant: [],
+            files: []
         }
     },
     methods: {
         readTransplantFile() {
-            var file = event.target.files[0];
-            this.$papa.parse(file, {
+            this.$papa.parse(this.files, {
                 header: true,
                 skipEmptyLines: true,
                 complete: (results => {
@@ -33,6 +34,9 @@ export default {
                     })
                 })
             })
+        },
+        setFile(){
+            this.files = event.target.files[0];
         }
     }
 
@@ -40,3 +44,7 @@ export default {
 </script>
 
 <style>
+.upload{
+    padding: 10px;
+}
+</style>

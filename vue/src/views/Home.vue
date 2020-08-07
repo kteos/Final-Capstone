@@ -61,6 +61,7 @@ body{
 .harvest{
   grid-area: harvest;
   background-color: #41b85395;
+  border-radius: 3px;
 }
 
 .header{
@@ -69,15 +70,40 @@ body{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border-radius: 3px;
 }
 
 .expiration{
   grid-area: expiration;
   background-color: #efa500;
+  border-radius: 3px;
 }
 
 .transplants{
   grid-area: transplants;
-  background-color: red;
+  background-color: #f40058;
+  border-radius: 3px;
+}
+
+table > tr:nth-child(even){
+    background-color: #43bfe56d;
+}
+
+table{
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+
+.container th :last-child{
+  width: 0%;
+}
+
+table tr,
+table td,
+table th{
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
 }
 </style>

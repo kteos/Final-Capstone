@@ -2,13 +2,11 @@
   <div>
     <table class="container">
       <tr>
-        <th>Id</th>
         <th>Crop</th>
         <th>Seed to Harvest Time</th>
         <th></th>
       </tr>
-      <tr v-for="harvest in harvestsCurrent" :key="harvest.id">
-        <td>{{harvest.id}}</td>
+      <tr v-for="harvest in harvests" :key="harvest.id">
         <td>{{harvest.crop}}</td>
         <td>{{harvest.directSeedToHarvestTime}}</td>
         <td>
@@ -46,7 +44,8 @@ export default {
             computedCrop: null,
             computedSeedHarvest: null,
             id: null,
-            isHidden: false
+            isHidden: false,
+            harvests: []
         }
     },
       name: "harvests",
@@ -90,12 +89,18 @@ export default {
         updateSelectedItem(){
             this.selectedHarvest.crop = this.computedCrop;
             this.selectedHarvest.directSeedToHarvestTime = this.computedSeedHarvest;
+        },
+        getAllHarvests(){
+            HarvestInfo.getAllHarvests().then((response) => {
+                this.harvests = response.data;
+            })
         }
       },
     
   
   created(){
       this.retrieveAllHarvests();
+      this.getAllHarvests();
   },
   computed: {
       harvestsCurrent(){
@@ -111,25 +116,16 @@ export default {
           return this.id;
       }
       
+  },
+  watch:{ 
+      harvests: function(){
+      this.getAllHarvests();
+  }
   }
 };
 </script>
 
 <style>
-table > tr:nth-child(even){
-    background-color: #F40058;
-}
-
-table{
-    display: block;
-    padding: 10px;
-}
-
-.container tr,
-.container td{
-    display: flex;
-    justify-content: space-between;
-}
 
 .editDelete{
     cursor: pointer;
