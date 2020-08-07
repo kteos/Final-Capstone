@@ -8,18 +8,26 @@
     <harvest-file />
     <harvests />
     </div>
+    <div class = "expiration">
+    <expiration-file />
+    <expirations />
+    </div>
   </div>
 </template>
 
 <script>
 import HarvestFile from '@/components/HarvestFile'
 import Harvests from '@/components/Harvests'
+import ExpirationFile from '@/components/ExpirationFile'
+import Expirations from '@/components/Expirations'
 
 export default {
   name: "home",
   components: {
     HarvestFile,
-    Harvests
+    Harvests,
+    ExpirationFile,
+    Expirations
   }
 };
 </script>
@@ -36,7 +44,7 @@ body{
   grid-template-columns: 1fr 3fr 3fr 1fr;
   grid-template-areas: 
     ". header header ."
-    ". harvest . ."
+    ". harvest expiration ."
   ;
   grid-gap: 10px;
 }
@@ -52,5 +60,10 @@ body{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.expiration{
+  grid-area: expiration;
+  background-color: #efa500;
 }
 </style>

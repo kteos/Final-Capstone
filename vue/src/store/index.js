@@ -23,7 +23,9 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     harvest: [],
-    harvests: []
+    harvests: [],
+    expiration: [],
+    expirations: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -46,7 +48,13 @@ export default new Vuex.Store({
       state.harvest = harvest;
     },
     SET_HARVESTS(state, data){
-      state.harvests = data
+      state.harvests = data;
+    },
+    POST_EXPIRATIONS(state, expiration) {
+      state.expiration = expiration;
+    },
+    SET_EXPIRATIONS(state, data){
+      state.expirations = data;
     }
   }
 })

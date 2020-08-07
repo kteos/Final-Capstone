@@ -2,15 +2,13 @@
   <div>
     <table class="container">
       <tr>
-        <th>Id</th>
         <th>Crop</th>
-        <th>Seed to Harvest Time</th>
+        <th>Days to Expire</th>
         <th></th>
       </tr>
-      <tr v-for="harvest in harvestsCurrent" :key="harvest.id">
-        <td>{{harvest.id}}</td>
-        <td>{{harvest.crop}}</td>
-        <td>{{harvest.directSeedToHarvestTime}}</td>
+      <tr v-for="expiration in expirationsCurrent" :key="expiration.id">
+        <td>{{expiration.crop}}</td>
+        <td>{{expiration.daysToExpire}}</td>
         <td>
             <a class ="editDelete">Edit</a> 
             <a class ="editDelete">Delete</a>
@@ -21,24 +19,24 @@
 </template>
 
 <script>
-import HarvestInfo from "@/services/HarvestInfo";
+import ExpirationService from "@/services/ExpirationService";
 export default {
-      name: "harvests",
+      name: "expirations",
       methods: {
-        retrieveAllHarvests() {
-          HarvestInfo.getAllHarvests().then(response => {
-            this.$store.commit("SET_HARVESTS", response.data);
+        retrieveAllExpirations() {
+          ExpirationService.getAllExpirations().then(response => {
+            this.$store.commit("SET_EXPIRATIONS", response.data);
           });
         }
       },
     
   
   created(){
-      this.retrieveAllHarvests();
+      this.retrieveAllExpirations();
   },
   computed: {
-      harvestsCurrent(){
-          return this.$store.state.harvests;
+      expirationsCurrent(){
+          return this.$store.state.expirations;
       }
   }
 };
