@@ -3,8 +3,8 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP TABLE IF EXISTS harvest;
+DROP TABLE IF EXISTS transplant;
 DROP TABLE IF EXISTS expiration;
-DROP TABLE IF EXISTS harvest_expiration;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -28,17 +28,13 @@ create table harvest(
         
         constraint pk_id primary key (id)
 );
+
 create table expiration(
         id serial primary key,
+        crop varchar(30) not null,
         days_to_expire int
         );
 
-create table harvest_expiration(
-                expiration_id int,
-                harvest_id int,
-                constraint fk_expiration_id foreign key (expiration_id) references expiration(id),
-                constraint fk_harvest_id foreign key (harvest_id) references harvest(id)
-);
 
 create table transplant(
         id serial,

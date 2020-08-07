@@ -6,5 +6,6 @@ public interface ExpirationDao {
 	
 	void createExpiration(List<Expiration> expirations);
 	List<Expiration>getExpirations();
+	Expiration updateExpiration(Expiration expiration);
 
 }

@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.HttpStatus;
+
 
 @RestController
 @CrossOrigin
@@ -21,7 +20,7 @@ public class ExpirationController {
 		this.dao = dao;
 	}
 	
-	@ResponseStatus(HttpStatus.CREATED)
+	
 	@RequestMapping( path= "/expiration/upload", method= RequestMethod.POST)
 	public void uplodExpiration(@RequestBody List<Expiration> expirations) {
 		dao.createExpiration(expirations);
@@ -31,5 +30,15 @@ public class ExpirationController {
 	public List<Expiration> listAllExpirations(){
 		return dao.getExpirations();
 	}
+	
+	
+	@RequestMapping( path= "/expiration/update", method=RequestMethod.POST)
+	public Expiration updateExpiration(@RequestBody Expiration expiration) {
+		return dao.updateExpiration(expiration);
+		
+	}
+	
+
+	
 
 }
