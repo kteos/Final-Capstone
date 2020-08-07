@@ -44,7 +44,7 @@ public class JdbcTransplantDao implements TransplantDao {
 		
 	public  List<Transplant> listTransplant(){
 		List<Transplant> transplantList = new ArrayList<Transplant>();
-		String select = "SELECT id, crop, direct_seed_to_transplant_time, FROM transplant";
+		String select = "SELECT id, crop, direct_seed_to_transplant_time, transplant_to_harvest_time FROM transplant";
 		SqlRowSet rows = jdbcTemplate.queryForRowSet(select);
 		
 		while(rows.next()) {
@@ -52,7 +52,7 @@ public class JdbcTransplantDao implements TransplantDao {
 			transplant.setId(rows.getInt("id"));
 			transplant.setCrop(rows.getString("crop"));
 			transplant.setDirectSeedToTransplantTime(rows.getInt("direct_seed_to_transplant_time"));
-			transplant.setTransplantToHarvestTime(rows.getInt(""));
+			transplant.setTransplantToHarvestTime(rows.getInt("transplant_to_harvest_time"));
 			transplantList.add(transplant);
 		}
 		return transplantList;
