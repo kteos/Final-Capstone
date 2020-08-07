@@ -6,5 +6,8 @@ export default {
     },
     getAllTransplants(){
         return axios.get("/transplant");
+    },
+    updateTransplant(transplant){
+        return axios.post("/transplant/update", transplant)
     }
 }

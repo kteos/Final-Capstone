@@ -25,7 +25,6 @@ export default {
                 skipEmptyLines: true,
                 complete: (results => {
                     this.transplant = results.data;
-                    console.log(this.transplant)
                     TransplantService.uploadTransplants(this.transplant).then(response => {
                         if (response.status == 201) {
                             console.log('successful');

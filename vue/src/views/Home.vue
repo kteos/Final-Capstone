@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="header">
-    <h1>Farmy</h1>
+    <h1>Farm Assistant</h1>
     <span>making your day to day easier</span>
     </div>
     <div  class="harvest">
