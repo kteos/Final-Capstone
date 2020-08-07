@@ -20,6 +20,8 @@ import HarvestFile from '@/components/HarvestFile'
 import Harvests from '@/components/Harvests'
 import ExpirationFile from '@/components/ExpirationFile'
 import Expirations from '@/components/Expirations'
+import TransplantFile from '@/components/TransplantFile'
+import Transplants from '@/components/Transplants'
 
 export default {
   name: "home",
