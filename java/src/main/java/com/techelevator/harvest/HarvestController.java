@@ -31,6 +31,7 @@ public class HarvestController {
 		return dao.cropNames();
 	}
 	
+	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping( path = "/harvest/update", method = RequestMethod.POST)
 	public Harvest updateHarvest(@RequestBody Harvest harvest) {
 		return dao.updateHarvest(harvest);

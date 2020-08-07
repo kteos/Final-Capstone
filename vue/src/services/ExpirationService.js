@@ -6,7 +6,11 @@ export default {
     },
     getAllExpirations(){
         return axios.get("/expiration");
+    },
+    updateExpiration(expiration){
+        return axios.post("/expiration/update", expiration)
     }
+
 }
 
 

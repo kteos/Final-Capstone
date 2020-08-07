@@ -9,11 +9,11 @@
       </tr>
       <tr v-for="transplant in transplantsCurrent" :key="transplant.id">
         <td>{{transplant.crop}}</td>
-        <td>{{transplant.diredtSeedToTransplantTime}}</td>
+        <td>{{transplant.directSeedToTransplantTime}}</td>
         <td>{{transplant.transplantToHarvestTime}}</td>
         <td>
             <a class ="editDelete">Edit</a> 
-            <a class ="editDelete">Delete</a>
+            <!-- <a class ="editDelete">Delete</a> -->
         </td>
       </tr>
     </table>

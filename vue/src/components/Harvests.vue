@@ -12,16 +12,16 @@
         <td>{{harvest.crop}}</td>
         <td>{{harvest.directSeedToHarvestTime}}</td>
         <td>
-            <a class ="editDelete" v-on:click="handleSelectedItem(harvest)">Edit</a> 
-            <a class ="editDelete">Delete</a>
+            <a class ="editDelete" v-on:click="handleSelectedItem(harvest)" >Edit</a> 
+            <!-- <a class ="editDelete">Delete</a> -->
         </td>
       </tr>
     </table>
-    <form>
+    <form v-on:submit.prevent="updateHarvest(selectedHarvest)" v-if="isHidden">
     <label for="crop">Crop: </label>
-    <input type="text" name="crop" id="crop" :value="computedCrop"/><br>
+    <input type="text" v-model="computedCrop" /><br>
     <label for="seedToHarvestTime">Seed to Harvest: </label>
-    <input type="number" name="seedToHarvestTime" id="seedToHarvestTime" :value="computedSeedHarvest" style="width:40px;">
+    <input type="number" v-model="computedSeedHarvest" style="width:40px;">
     <input type="submit">
     </form>
   </div>
@@ -44,7 +44,9 @@ export default {
                 }
             ],
             computedCrop: null,
-            computedSeedHarvest: null
+            computedSeedHarvest: null,
+            id: null,
+            isHidden: false
         }
     },
       name: "harvests",
@@ -55,6 +57,7 @@ export default {
           });
         },
         handleSelectedItem(harvest){
+            this.isHidden = true;
             this.selectedHarvest = [
                 {
                     id:harvest.id
@@ -66,8 +69,27 @@ export default {
                     directSeedToHarvestTime: harvest.directSeedToHarvestTime
                 }
             ]
+            this.id = harvest.id;
             this.computedCrop = harvest.crop;
             this.computedSeedHarvest = harvest.directSeedToHarvestTime;
+            
+        },
+        updateHarvest(){
+            this.isHidden = false;
+            const newHarvestData = {
+                id: this.id,
+                crop: this.computedCrop,
+                directSeedToHarvestTime: this.computedSeedHarvest
+            }
+            console.log(newHarvestData);
+            HarvestInfo.updateHarvest(newHarvestData).then(response => {
+                console.log(response.status);
+            this.$store.commit("SET_HARVESTS", response.data)
+          });
+        },
+        updateSelectedItem(){
+            this.selectedHarvest.crop = this.computedCrop;
+            this.selectedHarvest.directSeedToHarvestTime = this.computedSeedHarvest;
         }
       },
     
@@ -84,6 +106,9 @@ export default {
       },
       computeCrop(){
           return this.computedCrop;
+      },
+      computedId(){
+          return this.id;
       }
       
   }

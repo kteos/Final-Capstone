@@ -12,6 +12,10 @@
     <expiration-file />
     <expirations />
     </div>
+    <div class="transplants">
+      <transplant-file/>
+      <transplants />
+    </div>
   </div>
 </template>
 
@@ -29,7 +33,9 @@ export default {
     HarvestFile,
     Harvests,
     ExpirationFile,
-    Expirations
+    Expirations,
+    TransplantFile,
+    Transplants
   }
 };
 </script>
@@ -47,6 +53,7 @@ body{
   grid-template-areas: 
     ". header header ."
     ". harvest expiration ."
+    ". transplants . ."
   ;
   grid-gap: 10px;
 }
@@ -67,5 +74,10 @@ body{
 .expiration{
   grid-area: expiration;
   background-color: #efa500;
+}
+
+.transplants{
+  grid-area: transplants;
+  background-color: red;
 }
 </style>

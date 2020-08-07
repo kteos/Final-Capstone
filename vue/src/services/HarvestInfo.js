@@ -6,6 +6,9 @@ export default {
     },
     getAllHarvests(){
         return axios.get("/harvest");
+    },
+    updateHarvest(harvest){
+        return axios.post("/harvest/update", harvest)
     }
 }
 
