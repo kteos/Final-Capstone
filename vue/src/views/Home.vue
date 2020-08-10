@@ -16,6 +16,7 @@
       <transplant-file/>
       <transplants />
     </div>
+    
   </div>
 </template>
 
@@ -27,6 +28,7 @@ import Expirations from '@/components/Expirations'
 import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
 
+
 export default {
   name: "home",
   components: {
@@ -36,6 +38,7 @@ export default {
     Expirations,
     TransplantFile,
     Transplants
+    
   }
 };
 </script>

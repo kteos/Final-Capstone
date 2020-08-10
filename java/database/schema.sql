@@ -5,6 +5,8 @@ DROP SEQUENCE IF EXISTS seq_user_id;
 DROP TABLE IF EXISTS harvest;
 DROP TABLE IF EXISTS transplant;
 DROP TABLE IF EXISTS expiration;
+DROP TABLE IF EXISTS sales;
+DROP TABLE IF EXISTS harvest_info;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -44,6 +46,20 @@ create table transplant(
         
         constraint pk1_id primary key (id)
 );
+create table sales(
+        id serial primary key,
+        product varchar(35),
+        amount decimal(15,2),
+        howSold varchar(40)
+        );
+
+create table harvest_info(
+        id serial primary key,
+        area_identifier int,
+        crop varchar(35),
+        count_ int,
+        weight_ int
+        );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
