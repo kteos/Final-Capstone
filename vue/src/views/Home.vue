@@ -5,8 +5,9 @@
     <span>making your day to day easier</span>
     </div>
     <div  class="harvest">
-    <harvest-file />
-    <harvests />
+    <!-- <harvest-file />
+    <harvests /> -->
+    <all-harvests />
     </div>
     <div class = "expiration">
     <expiration-file />
@@ -16,29 +17,41 @@
       <transplant-file/>
       <transplants />
     </div>
+<<<<<<< HEAD
     
+=======
+    <something-info />
+>>>>>>> b8f37e69d63871708bf5bdf01f9ab710cfc552f4
   </div>
 </template>
 
 <script>
-import HarvestFile from '@/components/HarvestFile'
-import Harvests from '@/components/Harvests'
+// import HarvestFile from '@/components/HarvestFile'
+// import Harvests from '@/components/Harvests'
 import ExpirationFile from '@/components/ExpirationFile'
 import Expirations from '@/components/Expirations'
 import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
+import AllHarvests from '@/components/AllHarvests'
+import somethingInfo from '@/components/somethingInfo'
 
 
 export default {
   name: "home",
   components: {
-    HarvestFile,
-    Harvests,
+    // HarvestFile,
+    // Harvests,
     ExpirationFile,
     Expirations,
     TransplantFile,
+<<<<<<< HEAD
     Transplants
     
+=======
+    Transplants,
+    AllHarvests,
+    somethingInfo
+>>>>>>> b8f37e69d63871708bf5bdf01f9ab710cfc552f4
   }
 };
 </script>
