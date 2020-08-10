@@ -16,8 +16,9 @@
     <span>making your day to day easier</span>
     </div>
     <div  class="harvest">
-    <harvest-file />
-    <harvests />
+    <!-- <harvest-file />
+    <harvests /> -->
+    <all-harvests />
     </div>
     <div class = "expiration">
     <expiration-file />
@@ -27,28 +28,34 @@
       <transplant-file/>
       <transplants />
     </div>
+    <something-info />
   </div>
 </template>
 
 <script>
-import HarvestFile from '@/components/HarvestFile'
-import Harvests from '@/components/Harvests'
+// import HarvestFile from '@/components/HarvestFile'
+// import Harvests from '@/components/Harvests'
 import ExpirationFile from '@/components/ExpirationFile'
 import Expirations from '@/components/Expirations'
 import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
 import HarvestView from '@/views/HarvestView'
+import AllHarvests from '@/components/AllHarvests'
+import somethingInfo from '@/components/somethingInfo'
+
 
 export default {
   name: "home",
   components: {
-    HarvestFile,
-    Harvests,
+    // HarvestFile,
+    // Harvests,
     ExpirationFile,
     Expirations,
     TransplantFile,
     Transplants,
-    HarvestView
+    HarvestView,
+    AllHarvests,
+    somethingInfo
   },
   methods: {
     openNav() {
