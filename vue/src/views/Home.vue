@@ -29,6 +29,10 @@
       <transplants />
     </div>
     <waste-info />
+    <div class="crops">
+          <all-crops />
+    </div>
+
   </div>
 </template>
 
@@ -43,6 +47,8 @@ import Transplants from '@/components/Transplants'
 import AllHarvests from '@/components/AllHarvests'
 // import SaleInfo from '@/components/SaleInfo'
 import WasteInfo from '@/components/WasteInfo'
+// import CropsUpload from '@/components/CropsUpload'
+import AllCrops from '@/components/AllCrops'
 
 
 export default {
@@ -56,7 +62,8 @@ export default {
     Transplants,
     // HarvestView,
     AllHarvests,
-    WasteInfo
+    WasteInfo,
+    AllCrops
 
   },
   methods: {
@@ -84,7 +91,7 @@ body{
   grid-template-areas: 
     "menu header header ."
     ". harvest expiration ."
-    ". transplants . ."
+    ". transplants crops ."
   ;
   grid-gap: 10px;
 }
@@ -191,6 +198,10 @@ table th{
   font-family: 'Bungee';
   font-size: 60px;
   color: rgb(85, 82, 82);
+}
+
+.crops{
+  grid-area: crops;
 }
 
 </style>

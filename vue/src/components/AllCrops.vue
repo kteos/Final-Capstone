@@ -1,8 +1,9 @@
 <template>
   <div>
       <p>asdf2</p>
-        <crops />
         <crops-upload />
+        <crops />
+
   </div>
 </template>
 

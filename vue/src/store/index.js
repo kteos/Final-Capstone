@@ -34,7 +34,9 @@ export default new Vuex.Store({
     newSale: {},
     newHarvestInfo: {},
     newWasteInfo: {},
-    newLossInfo: {}
+    newLossInfo: {},
+    crop: [],
+    crops: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -82,6 +84,12 @@ export default new Vuex.Store({
     },
     ADD_LOSS_INFO(state,data){
       state.newLossInfo = data;
+    },
+    POST_CROPS(state, crop) {
+      state.crop = crop;
+    },
+    SET_CROPS(state,data){
+      state.crops = data;
     }
   }
 })

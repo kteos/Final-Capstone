@@ -48,6 +48,6 @@ public class JdbcCropsDao implements CropsDao{
 	
 	public void updateCrops(Crops crop) {
 		String update = "update crops set area = ?, crop = ?, planting_date = ? where id = ?";
-		jd.update(update, crop.getArea(), crop.getCrop(),crop.getPlantingDate());
+		jd.update(update, crop.getArea(), crop.getCrop(),crop.getPlantingDate(),crop.getId());
 	}
 }
