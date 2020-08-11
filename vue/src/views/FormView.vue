@@ -1,5 +1,5 @@
 <template>
-    <div class="all">
+    <div class="form">
       <div class="title">
          <h1 class="formttitle">Sales Information</h1>
       </div>
@@ -62,7 +62,7 @@ h1 {
     font-size: 60px;
 }
 
-.all {
+.form {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 

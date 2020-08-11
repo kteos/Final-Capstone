@@ -8,14 +8,13 @@
       </div>
       <div class ="upload">
         <p>Enter Transplant Information</p> 
-        <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding Direct Seed to Harvest Time in days.</p>
+        <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name, the corresponding Direct Seed to Transplant Time in days, and Transplant to Harvest Time in days.</p>
         <transplant-file />
       </div>
       <div class="display">
           <transplants />
       </div>
   </div>
-
 </template>
 
 <script>
@@ -47,7 +46,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
-    "menu title ."
+    "menu title title"
     ". upload ."
     ". display ."
     ;
@@ -92,4 +91,5 @@ p {
     font-size: 18px;
     font-weight: normal;
 }
+
 </style>

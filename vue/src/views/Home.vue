@@ -7,15 +7,6 @@
     <div class="menu1">
       <side-bar-nav />
     </div>
-    <div class="transplants">
-      <transplant-file/>
-      <transplants />
-    </div>
-    <waste-info />
-    <div class="crops">
-          <all-crops />
-    </div>
-
   </div>
 </template>
 
@@ -66,8 +57,6 @@ body{
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
     "menu header ."
-    ". expiration ."
-    ". transplants ."
   ;
   grid-gap: 10px;
 }
@@ -162,10 +151,6 @@ table th{
   font-family: 'Bungee';
   font-size: 60px;
   color: rgb(85, 82, 82);
-}
-
-.crops{
-  grid-area: crops;
 }
 
 </style>
