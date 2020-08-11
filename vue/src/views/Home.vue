@@ -39,7 +39,7 @@ import ExpirationFile from '@/components/ExpirationFile'
 import Expirations from '@/components/Expirations'
 import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
-import HarvestView from '@/views/HarvestView'
+// import HarvestView from '@/views/HarvestView'
 import AllHarvests from '@/components/AllHarvests'
 import somethingInfo from '@/components/somethingInfo'
 
@@ -53,7 +53,7 @@ export default {
     Expirations,
     TransplantFile,
     Transplants,
-    HarvestView,
+    // HarvestView,
     AllHarvests,
     somethingInfo
   },
