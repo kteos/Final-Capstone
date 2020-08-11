@@ -57,8 +57,14 @@ export default {
     Transplants,
     // HarvestView,
     AllHarvests,
+<<<<<<< HEAD
     SaleInfo,
     HarvestInfo
+=======
+    somethingInfo
+<<<<<<< HEAD
+=======
+>>>>>>> 4e8c60557e485720f1a6e3aa052a38173da3edb6
   },
   methods: {
     openNav() {
@@ -67,6 +73,7 @@ export default {
     closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     },
+>>>>>>> b5e7f1fabb7200b42acb012b532c9ae23ab6958b
   }
 };
 </script>

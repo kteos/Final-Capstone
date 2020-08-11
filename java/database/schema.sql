@@ -6,8 +6,11 @@ DROP TABLE IF EXISTS harvest;
 DROP TABLE IF EXISTS transplant;
 DROP TABLE IF EXISTS expiration;
 DROP TABLE IF EXISTS crops;
-DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS harvest_info;
+DROP TABLE IF EXISTS wasteinfo;
+DROP TABLE IF EXISTS lossinfo;
+
+
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -70,6 +73,17 @@ create table crops(
 
         constraint pk_crops_id primary key (id)
 );
+create table wasteinfo(
+        id serial primary key,
+        crop varchar(35),
+        reason varchar(40)
+        );
+
+create table lossinfo(
+        id serial primary key,
+        crop varchar(35),
+        loss_reason varchar(40)
+        );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
