@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import HarvestView from '../views/HarvestView.vue'
 import ExpirationView from '../views/ExpirationView.vue'
+import TransplantView from '../views/TransplantView.vue'
 
 Vue.use(Router)
 
@@ -67,6 +68,14 @@ const router = new Router({
       path: "/expiration",
       name: "expirationview",
       component: ExpirationView,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/transplant",
+      name: "transplantview",
+      component: TransplantView,
       meta: {
         requiresAuth: false
       }

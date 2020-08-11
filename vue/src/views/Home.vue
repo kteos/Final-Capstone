@@ -7,10 +7,6 @@
     <div class="menu1">
       <side-bar-nav />
     </div>
-    <div class = "expiration">
-    <expiration-file />
-    <expirations />
-    </div>
     <div class="transplants">
       <transplant-file/>
       <transplants />
