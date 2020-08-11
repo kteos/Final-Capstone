@@ -1,6 +1,5 @@
 <template>
   <div>
-      <p>asdf2</p>
         <crops-upload />
         <crops />
 
