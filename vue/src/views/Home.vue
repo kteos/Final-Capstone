@@ -28,8 +28,7 @@
       <transplant-file/>
       <transplants />
     </div>
-    <sale-info />
-    <harvest-info />
+    <waste-info />
   </div>
 </template>
 
@@ -42,8 +41,8 @@ import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
 // import HarvestView from '@/views/HarvestView'
 import AllHarvests from '@/components/AllHarvests'
-import SaleInfo from '@/components/SaleInfo'
-import HarvestInfo from '@/components/HarvestInfo'
+// import SaleInfo from '@/components/SaleInfo'
+import WasteInfo from '@/components/WasteInfo'
 
 
 export default {
@@ -57,14 +56,8 @@ export default {
     Transplants,
     // HarvestView,
     AllHarvests,
-<<<<<<< HEAD
-    SaleInfo,
-    HarvestInfo
-=======
-    somethingInfo
-<<<<<<< HEAD
-=======
->>>>>>> 4e8c60557e485720f1a6e3aa052a38173da3edb6
+    WasteInfo
+
   },
   methods: {
     openNav() {
@@ -73,7 +66,6 @@ export default {
     closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     },
->>>>>>> b5e7f1fabb7200b42acb012b532c9ae23ab6958b
   }
 };
 </script>
