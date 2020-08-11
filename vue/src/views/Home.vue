@@ -17,11 +17,7 @@
       <transplant-file/>
       <transplants />
     </div>
-<<<<<<< HEAD
-    
-=======
     <something-info />
->>>>>>> b8f37e69d63871708bf5bdf01f9ab710cfc552f4
   </div>
 </template>
 
@@ -44,14 +40,9 @@ export default {
     ExpirationFile,
     Expirations,
     TransplantFile,
-<<<<<<< HEAD
-    Transplants
-    
-=======
     Transplants,
     AllHarvests,
     somethingInfo
->>>>>>> b8f37e69d63871708bf5bdf01f9ab710cfc552f4
   }
 };
 </script>
