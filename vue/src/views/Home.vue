@@ -11,7 +11,7 @@
       <transplant-file/>
       <transplants />
     </div>
-    <something-info />
+    <waste-info />
   </div>
 </template>
 
@@ -22,10 +22,11 @@ import ExpirationFile from '@/components/ExpirationFile'
 import Expirations from '@/components/Expirations'
 import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
-import HarvestView from '@/views/HarvestView'
+// import HarvestView from '@/views/HarvestView'
 import AllHarvests from '@/components/AllHarvests'
-import somethingInfo from '@/components/somethingInfo'
 import SideBarNav from '@/components/SideBarNav'
+// import SaleInfo from '@/components/SaleInfo'
+import WasteInfo from '@/components/WasteInfo'
 
 
 export default {
@@ -37,10 +38,10 @@ export default {
     Expirations,
     TransplantFile,
     Transplants,
-    HarvestView,
+    // HarvestView,
     AllHarvests,
-    somethingInfo,
-    SideBarNav
+    SideBarNav,
+    WasteInfo
   },
 };
 </script>
@@ -49,7 +50,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Bungee");
 
 body{
-  color: white;
+  color: black;
 }
 
 .home{

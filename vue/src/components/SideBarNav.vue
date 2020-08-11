@@ -7,6 +7,7 @@
         <a href="#">Crop Plans</a>
         <a href="/transplant">Transplant Info</a>
         <a href="/expiration">Expiration Info</a>
+        <a href="/form">Add Sales Info</a>
         <a href="/login">Login</a>
         <a href="/logout">Logout</a>
       </div>
