@@ -57,7 +57,7 @@ const router = new Router({
     {
       path: "/harvest",
       name: "harvestview",
-      components: HarvestView,
+      component: HarvestView,
       meta: {
         requiresAuth: false
       }

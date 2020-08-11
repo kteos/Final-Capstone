@@ -1,6 +1,5 @@
 <template>
   <div>
-      <p>asdf</p>
       <harvest-file />
       <harvests />
   </div>

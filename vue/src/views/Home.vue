@@ -5,7 +5,7 @@
         <a href="/login">Login</a>
         <a href="/logout">Logout</a>
         <a href="/">Home</a>
-        <a href="#">Harvest Info</a>
+        <a href="/harvest">Harvest Info</a>
         <a href="#">Crop Plans</a>
         <a href="#">Crop Expiration Info</a>
 
