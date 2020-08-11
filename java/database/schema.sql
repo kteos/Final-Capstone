@@ -5,12 +5,9 @@ DROP SEQUENCE IF EXISTS seq_user_id;
 DROP TABLE IF EXISTS harvest;
 DROP TABLE IF EXISTS transplant;
 DROP TABLE IF EXISTS expiration;
-<<<<<<< HEAD
+DROP TABLE IF EXISTS crops;
 DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS harvest_info;
-=======
-DROP TABLE IF EXISTS crops;
->>>>>>> b8f37e69d63871708bf5bdf01f9ab710cfc552f4
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1

@@ -30,7 +30,11 @@ export default new Vuex.Store({
     expiration: [],
     expirations: [],
     transplant: [],
-    transplants: []
+    transplants: [],
+    newSale: {},
+    newHarvestInfo: {},
+    newWasteInfo: {},
+    newLossInfo: {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -66,7 +70,18 @@ export default new Vuex.Store({
     },
     SET_TRANSPLANTS(state, data) {
       state.transplants = data;
+    },
+    ADD_INFO(state,data){
+      state.newInfo = data;
+    },
+    ADD_HARVEST_INFO(state,data){
+      state.newHarvestInfo = data;
+    },
+    ADD_WASTE_INFO(state,data){
+      state.newWasteInfo = data;
+    },
+    ADD_LOSS_INFO(state,data){
+      state.newLossInfo = data;
     }
-
   }
 })

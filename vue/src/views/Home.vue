@@ -28,7 +28,8 @@
       <transplant-file/>
       <transplants />
     </div>
-    <something-info />
+    <sale-info />
+    <harvest-info />
   </div>
 </template>
 
@@ -41,7 +42,8 @@ import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
 // import HarvestView from '@/views/HarvestView'
 import AllHarvests from '@/components/AllHarvests'
-import somethingInfo from '@/components/somethingInfo'
+import SaleInfo from '@/components/SaleInfo'
+import HarvestInfo from '@/components/HarvestInfo'
 
 
 export default {
@@ -55,7 +57,8 @@ export default {
     Transplants,
     // HarvestView,
     AllHarvests,
-    somethingInfo
+    SaleInfo,
+    HarvestInfo
   },
   methods: {
     openNav() {
