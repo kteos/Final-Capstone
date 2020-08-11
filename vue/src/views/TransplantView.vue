@@ -1,7 +1,7 @@
 <template>
     <div class="all">
       <div class="title">
-         <h1 class="transplanttitle">Harvest Information</h1>
+         <h1 class="transplanttitle">Transplant Information</h1>
       </div>
       <div class ="menu2">
         <side-bar-nav />
