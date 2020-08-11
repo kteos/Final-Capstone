@@ -2,9 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import VuePapaParse from 'vue-papa-parse'
+import VueSidebarMenu from 'vue-sidebar-menu'
+import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
 Vue.use(Vuex)
 Vue.use(VuePapaParse)
+Vue.use(VueSidebarMenu)
 
 /*
  * The authorization header is set for axios when you login but what happens when you come back or
