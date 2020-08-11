@@ -1,35 +1,33 @@
 <template>
-  <div class="all">
+    <div class="all">
       <div class="title">
-         <h1 class="harvesttitle">Harvest Information</h1>
+         <h1 class="expirtitle">Expiration Information</h1>
       </div>
       <div class ="menu2">
         <side-bar-nav />
       </div>
       <div class ="upload">
-        <p>Enter Harvest Information</p> 
-        <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding Direct Seed to Harvest Time in days.</p>
-        <harvest-file />
+        <p>Enter Crop Expiration Information</p> 
+        <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding Expiration Time in days.</p>
+        <expiration-file />
       </div>
       <div class="display">
-          <harvests />
+          <expirations />
       </div>
   </div>
 </template>
 
 <script>
-import Harvests from '../components/Harvests'
-import HarvestFile from '../components/HarvestFile'
-import AllHarvests from '../components/AllHarvests.vue'
+import Expirations from '@/components/Expirations'
+import ExpirationFile from '@/components/ExpirationFile'
 import SideBarNav from '../components/SideBarNav'
 
 export default {
-    name: "harvestview",
+    name: "expirationview",
     components: {
-        Harvests,
-        AllHarvests,
-        SideBarNav,
-        HarvestFile
+        Expirations,
+        ExpirationFile,
+        SideBarNav
     }
 }
 </script>
@@ -46,7 +44,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
-    "menu title ."
+    "menu title title"
     ". upload ."
     ". display ."
     ;
@@ -57,10 +55,11 @@ h1 {
     font-family: 'Bungee';
 }
 
-.harvesttitle {
+.expirtitle {
     font-size: 60px;
     color: rgb(85, 82, 82);
 }
+
 .menu2 {
     grid-area: menu;
     padding-bottom: 120px;

@@ -1,7 +1,5 @@
 <template>
   <div class="upload">
-      
-      <div>Upload Expiration File:</div>
       <input type = "file" v-on:change="setFile"/>
       <button v-on:click.prevent="readExpirationFile">Upload</button>
   </div>
@@ -47,5 +45,6 @@ export default {
 <style>
 .upload{
     padding:10px;
+    color: black;
 }
 </style>

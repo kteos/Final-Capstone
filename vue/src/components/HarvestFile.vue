@@ -1,7 +1,5 @@
 <template>
   <div class="upload">
-      
-      <div>Upload Harvest File:</div>
       <input type = "file" v-on:change="setFile"/>
       <button v-on:click.prevent="readFile">Upload</button>
       
@@ -48,6 +46,7 @@ export default {
 <style>
 
 .upload{
+    color: black;
     padding: 10px;
 }
 

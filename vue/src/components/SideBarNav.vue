@@ -2,12 +2,12 @@
 <div>
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">&times;</a>
-        <a href="/login">Login</a>
-        <a href="/logout">Logout</a>
         <a href="/">Home</a>
         <a href="/harvest">Harvest Info</a>
         <a href="#">Crop Plans</a>
-        <a href="#">Crop Expiration Info</a>
+        <a href="/expiration">Expiration Info</a>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
       </div>
   <button class="menu" v-on:click="openNav()">Menu</button>
 </div>
@@ -39,9 +39,9 @@ export default {
   top: 0; 
   left: 0;
   background-color: rgb(37, 35, 35); 
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s;
 }
 
 .sidenav a {
