@@ -4,9 +4,9 @@
     <h1 class="title">Farm Assist</h1>
     <span>making your day to day easier</span>
     </div>
-    <div class="menu1">
+    
       <side-bar-nav />
-    </div>
+    
   </div>
 </template>
 
@@ -56,7 +56,7 @@ body{
   
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
-    "menu header ."
+    ". header ."
   ;
   grid-gap: 10px;
 }
@@ -104,7 +104,7 @@ table th{
     text-align: right;
 }
 
-.sidenav {
+/* .sidenav {
   color: white;
   height: 100%; 
   width: 0;
@@ -113,9 +113,9 @@ table th{
   top: 0; 
   left: 0;
   background-color: rgb(37, 35, 35); 
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  overflow-x: hidden; /* Disable horizontal scroll  
+  padding-top: 60px; /* Place content 60px from the top 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav 
 }
 
 .sidenav a {
@@ -140,12 +140,12 @@ table th{
 }
 
 .menu1 {
-    grid-area: menu;
+
     padding-bottom: 120px;
     padding-left: 50px;
     padding-right: 90px;
     align-content: top;
-}
+} */
 
 .title {
   font-family: 'Bungee';

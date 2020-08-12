@@ -20,14 +20,12 @@
 <script>
 import Harvests from '../components/Harvests'
 import HarvestFile from '../components/HarvestFile'
-import AllHarvests from '../components/AllHarvests.vue'
 import SideBarNav from '../components/SideBarNav'
 
 export default {
     name: "harvestview",
     components: {
         Harvests,
-        AllHarvests,
         SideBarNav,
         HarvestFile
     }
