@@ -6,40 +6,37 @@
     <div class="menu1">
       <side-bar-nav />
     </div>
+  <div class="chart">
+    <random-chart />
+  </div>
   </div>
 </template>
 
 <script>
-// import HarvestFile from '@/components/HarvestFile'
-// import Harvests from '@/components/Harvests'
 import ExpirationFile from '@/components/ExpirationFile'
 import Expirations from '@/components/Expirations'
 import TransplantFile from '@/components/TransplantFile'
 import Transplants from '@/components/Transplants'
-// import HarvestView from '@/views/HarvestView'
 import AllHarvests from '@/components/AllHarvests'
 import SideBarNav from '@/components/SideBarNav'
-// import SaleInfo from '@/components/SaleInfo'
 import WasteInfo from '@/components/WasteInfo'
-// import CropsUpload from '@/components/CropsUpload'
 import AllCrops from '@/components/AllCrops'
+import RandomChart from '@/components/RandomChart'
 
 
 export default {
   name: "home",
   components: {
-    // HarvestFile,
-    // Harvests,
     ExpirationFile,
     Expirations,
     TransplantFile,
     Transplants,
-    // HarvestView,
     AllHarvests,
     SideBarNav,
     WasteInfo,
-    AllCrops
-  },
+    AllCrops,
+    RandomChart
+  }
 };
 </script>
 
@@ -56,8 +53,13 @@ body{
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
     "menu header ."
+    ". chart ."
   ;
   grid-gap: 10px;
+}
+
+.chart {
+  grid-area: chart;
 }
 
 .header{

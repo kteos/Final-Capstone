@@ -7,7 +7,7 @@
         <side-bar-nav />
       </div>
     <div class="secondarytitle">
-        <h2>Use the forms below to add relevant information about your harvest including Sales, Loss, and Waste.</h2>
+        <h2>Use the forms below to add relevant information about your harvest including Harvest, Sales, Loss, and Waste.</h2>
     </div>
       <div class ="uploadSales">
         <p>Sales Information</p>
@@ -27,6 +27,12 @@
           <button class="design" v-on:click.prevent="showWaste = !showWaste">Add Waste Info</button>
           <waste-info v-if="showWaste"/>
       </div>
+      <div class="uploadHarvest">
+          <p>Harvest Information</p>
+          <p class="description">Click "Add Harvest Info" to record harvest information.</p>
+          <button class="design" v-on:click.prevent="showHarvest = !showHarvest">Add Harvest Info</button>
+          <harvest-info v-if="showHarvest"/>
+      </div>
     </div>
 </template>
 
@@ -35,6 +41,7 @@ import SaleInfo from '@/components/SaleInfo'
 import LossInfo from '@/components/LossInfo'
 import WasteInfo from '@/components/WasteInfo'
 import SideBarNav from '@/components/SideBarNav'
+import HarvestInfo from '@/components/HarvestInfo'
 
 export default {
     name: "formview",
@@ -42,13 +49,15 @@ export default {
         SaleInfo,
         LossInfo,
         WasteInfo,
-        SideBarNav
+        SideBarNav,
+        HarvestInfo
     },
     data() {
         return {
             showSales: false,
             showLoss: false,
-            showWaste: false
+            showWaste: false,
+            showHarvest: false
         }
     }
 }
@@ -66,11 +75,13 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
-    "menu title ."
+    "menu title title"
     ". secondarytitle ."
+    ". harvest ."
     ". sale ."
     ". loss ."
     ". waste ."
+
     ;
 }
 .secondarytitle{
@@ -112,6 +123,14 @@ h1 {
 
 .uploadWaste {
     grid-area: waste;
+    background-color: white;
+    opacity: 0.85; 
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.uploadHarvest {
+    grid-area: harvest;
     background-color: white;
     opacity: 0.85; 
     padding-left: 20px;
