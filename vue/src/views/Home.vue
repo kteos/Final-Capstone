@@ -12,17 +12,17 @@
 <script>
 // import HarvestFile from '@/components/HarvestFile'
 // import Harvests from '@/components/Harvests'
-import ExpirationFile from '@/components/ExpirationFile'
-import Expirations from '@/components/Expirations'
-import TransplantFile from '@/components/TransplantFile'
-import Transplants from '@/components/Transplants'
+// import ExpirationFile from '@/components/ExpirationFile'
+// import Expirations from '@/components/Expirations'
+// import TransplantFile from '@/components/TransplantFile'
+// import Transplants from '@/components/Transplants'
 // import HarvestView from '@/views/HarvestView'
-import AllHarvests from '@/components/AllHarvests'
+// import AllHarvests from '@/components/AllHarvests'
 import SideBarNav from '@/components/SideBarNav'
 // import SaleInfo from '@/components/SaleInfo'
-import WasteInfo from '@/components/WasteInfo'
+// import WasteInfo from '@/components/WasteInfo'
 // import CropsUpload from '@/components/CropsUpload'
-import AllCrops from '@/components/AllCrops'
+// import AllCrops from '@/components/AllCrops'
 
 
 export default {
@@ -30,15 +30,15 @@ export default {
   components: {
     // HarvestFile,
     // Harvests,
-    ExpirationFile,
-    Expirations,
-    TransplantFile,
-    Transplants,
+    // ExpirationFile,
+    // Expirations,
+    // TransplantFile,
+    // Transplants,
     // HarvestView,
-    AllHarvests,
+    // AllHarvests,
     SideBarNav,
-    WasteInfo,
-    AllCrops
+    // WasteInfo,
+    // AllCrops
   },
 };
 </script>
