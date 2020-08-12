@@ -55,7 +55,7 @@ body{
   
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
-    "menu header header"
+    "menu header ."
   ;
   grid-gap: 10px;
 }
