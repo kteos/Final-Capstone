@@ -5,7 +5,7 @@
         <a href="/">Home</a>
         <span>Upload your information</span>
         <a href="/harvest">Harvest Info</a>
-        <a href="#">Crop Plans</a>
+        <a href="/cropplan">Crop Plans</a>
         <a href="/transplant">Transplant Info</a>
         <a href="/expiration">Expiration Info</a>
         <a href="/form">Add Sales Info</a>

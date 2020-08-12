@@ -9,6 +9,7 @@ import HarvestView from '../views/HarvestView.vue'
 import ExpirationView from '../views/ExpirationView.vue'
 import TransplantView from '../views/TransplantView.vue'
 import FormView from '../views/FormView.vue'
+import CropPlanView from '../views/CropPlanView.vue'
 
 Vue.use(Router)
 
@@ -85,6 +86,14 @@ const router = new Router({
       path: "/form",
       name: "formview",
       component: FormView,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/cropplan",
+      name: "cropplanview",
+      component: CropPlanView,
       meta: {
         requiresAuth: false
       }

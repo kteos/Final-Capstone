@@ -1,7 +1,5 @@
 <template>
   <div class="upload">
-      
-      <div>Upload Crops File:</div>
       <input type = "file" v-on:change="setFile"/>
       <button v-on:click.prevent="readCropsFile">Upload</button>
   </div>

@@ -1,33 +1,28 @@
 <template>
   <div class="all">
       <div class="title">
-         <h1 class="harvesttitle">Harvest Information</h1>
+         <h1 class="croptitle">Crop Plans</h1>
       </div>
       <div class ="menu2">
         <side-bar-nav />
       </div>
       <div class ="upload">
-        <p>Enter Harvest Information</p> 
-        <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding Direct Seed to Harvest Time in days.</p>
-        <harvest-file />
-      </div>
-      <div class="display">
-          <harvests />
+        <p>Enter Crop Plans</p> 
+        <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding plant date.</p>
+        <all-crops />
       </div>
   </div>
 </template>
 
 <script>
-import Harvests from '../components/Harvests'
-import HarvestFile from '../components/HarvestFile'
-import SideBarNav from '../components/SideBarNav'
+import AllCrops from '@/components/AllCrops'
+import SideBarNav from '@/components/SideBarNav'
 
 export default {
-    name: "harvestview",
+    name: "cropplanview",
     components: {
-        Harvests,
-        SideBarNav,
-        HarvestFile
+        AllCrops,
+        SideBarNav
     }
 }
 </script>
@@ -97,4 +92,5 @@ table.container {
     border: 1px solid #ccc;
     border-top-color: white;
 }
+
 </style>

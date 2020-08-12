@@ -2,7 +2,6 @@
   <div class="home">
   <div class="header">
     <h1 class="title">Farm Assist</h1>
-    <span>making your day to day easier</span>
     </div>
     
       <side-bar-nav />
