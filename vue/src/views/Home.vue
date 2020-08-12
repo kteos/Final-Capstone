@@ -2,7 +2,6 @@
   <div class="home">
   <div class="header">
     <h1 class="title">Farm Assist</h1>
-    <span>making your day to day easier</span>
     </div>
     <div class="menu1">
       <side-bar-nav />
@@ -56,7 +55,7 @@ body{
   
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
-    "menu header ."
+    "menu header header"
   ;
   grid-gap: 10px;
 }
