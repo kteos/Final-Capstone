@@ -1,5 +1,8 @@
 package com.techelevator.sale;
 
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +21,13 @@ public class SaleController {
 	
 	
 	@RequestMapping(path= "/sale/input" , method=RequestMethod.POST)
-	public void insertSale(@RequestBody SaleForm sale) {
-		dao.insertSale(sale);
+	public void insertSale(@RequestBody SaleForm sale , Principal user) {
+		dao.insertSale(sale , user.getName());
+	}
+	
+	@RequestMapping(path = "/sale", method= RequestMethod.GET)
+	public List<SaleForm> getAllSales( Principal user){
+		return dao.getListOfSales(user.getName());
 	}
 
 }

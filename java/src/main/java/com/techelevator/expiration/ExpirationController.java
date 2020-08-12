@@ -1,5 +1,6 @@
 package com.techelevator.expiration;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,19 +23,19 @@ public class ExpirationController {
 	
 	
 	@RequestMapping( path= "/expiration/upload", method= RequestMethod.POST)
-	public void uplodExpiration(@RequestBody List<Expiration> expirations) {
-		dao.createExpiration(expirations);
+	public void uplodExpiration(@RequestBody List<Expiration> expirations , Principal user) {
+		dao.createExpiration(expirations, user.getName());
 	}
 	
 	@RequestMapping( path = "/expiration", method=RequestMethod.GET)
-	public List<Expiration> listAllExpirations(){
-		return dao.getExpirations();
+	public List<Expiration> listAllExpirations(Principal user){
+		return dao.getExpirations(user.getName());
 	}
 	
 	
 	@RequestMapping( path= "/expiration/update", method=RequestMethod.POST)
-	public Expiration updateExpiration(@RequestBody Expiration expiration) {
-		return dao.updateExpiration(expiration);
+	public Expiration updateExpiration(@RequestBody Expiration expiration, Principal user) {
+		return dao.updateExpiration(expiration, user.getName());
 		
 	}
 	

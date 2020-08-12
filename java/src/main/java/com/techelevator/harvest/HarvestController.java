@@ -1,5 +1,7 @@
 package com.techelevator.harvest;
+import java.security.Principal;
 import java.util.List;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,19 +24,19 @@ public class HarvestController {
 	}
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(path = "/harvest/upload", method = RequestMethod.POST)
-	public void uploadHarvests(@RequestBody Harvest[] harvest )  {
-		dao.createHarvests( harvest );
+	public void uploadHarvests(  @RequestBody Harvest[] harvest , Principal user )  {
+		dao.createHarvests( harvest, user.getName() );
 	}
 	
 	@RequestMapping( path = "/harvest", method = RequestMethod.GET)
-	public List<Harvest> listAllCrops(){
-		return dao.cropNames();
+	public List<Harvest> listAllCrops(Principal user){
+		return dao.cropNames(user.getName());
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping( path = "/harvest/update", method = RequestMethod.POST)
-	public Harvest updateHarvest(@RequestBody Harvest harvest) {
-		return dao.updateHarvest(harvest);
+	public Harvest updateHarvest(@RequestBody Harvest harvest , Principal user) {
+		return dao.updateHarvest(harvest, user.getName());
 	}
 	
 }

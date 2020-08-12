@@ -85,6 +85,54 @@ create table lossinfo(
         loss_reason varchar(40)
         );
 
+        DROP TABLE IF EXISTS users_harvest;
+create table users_harvest(
+        user_id int,
+        harvest_id int,
+        primary key (user_id, harvest_id),
+        constraint fk_user_id foreign key (user_id) references users(user_id),
+        constraint fk_harvest_id foreign key (harvest_id) references harvest(id)
+        
+        );
+
+        Drop Table if Exists users_expiration;
+
+        create table users_expiration(
+        user_id int,
+        expiration_id int,
+        primary key (user_id, expiration_id),
+        constraint fk_user_id foreign key (user_id) references users(user_id),
+        constraint fk_expiration_id foreign key (expiration_id) references expiration(id)
+        
+        );
+
+        drop table if exists users_transplant;
+
+
+        create table users_transplant(
+        user_id int,
+        transplant_id int,
+        primary key (user_id, transplant_id),
+        constraint fk_user_id foreign key (user_id) references users(user_id),
+        constraint fk_transplant_id foreign key (transplant_id) references transplant(id)
+        
+        );
+
+        Drop Table If exists users_sale;
+
+
+        create table users_sale(
+        user_id int,
+        sale_id int,
+        primary key (user_id, sale_id),
+        constraint fk_user_id foreign key (user_id) references users(user_id),
+        constraint fk_sale_id foreign key (sale_id) references sales(id)
+        );
+
+
+        
+
+
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 

@@ -17,13 +17,28 @@ public class JdbcWasteDao implements WasteDao {
 	
 	
 	@Override
-	public void insertWaste(Waste waste) {
+	public void insertWaste(Waste waste , String user) {
+		int userId = getUserId(user);
 		String insert = "INSERT INTO wasteinfo (id, crop, reason) VALUES (default, ?, ?) returning id";
 		SqlRowSet id = jd.queryForRowSet(insert, waste.getCrop(), waste.getReason());
 		while (id.next()) {
 			waste.setId(id.getInt("id"));
 		}
 		
+	}
+	
+	
+	
+	private int getUserId(String user) {
+		int userId = 0;
+		String getUserId = "SELECT user_id FROM users Where username = ?";
+		SqlRowSet getId = jd.queryForRowSet(getUserId, user);
+		while (getId.next()) {
+			userId = getId.getInt("user_id");
+		}
+
+		return userId;
+
 	}
 
 }

@@ -17,7 +17,10 @@ public class JdbcTransplantDao implements TransplantDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public void createTransplants( Transplant[] transplant ) {
+	public void createTransplants( Transplant[] transplant , String user ) {
+		
+		int userId = getUserId(user);
+		String insertJoins = "INSERT INTO users_transplant (user_id, transplant_id) VALUES (?, ?)";
 		
 		for (Transplant item : transplant) {
 			String select = "SELECT id, crop, direct_seed_to_transplant_time, transplant_to_harvest_time FROM transplant Where crop = ?";
@@ -34,6 +37,8 @@ public class JdbcTransplantDao implements TransplantDao {
 				while (row.next()) {
 					item.setId(row.getInt("id"));
 				}
+				jdbcTemplate.update(insertJoins, userId, item.getId());
+				
 				
 			}
 
@@ -41,10 +46,11 @@ public class JdbcTransplantDao implements TransplantDao {
 
 	}
 		
-	public  List<Transplant> listTransplant(){
+	public  List<Transplant> listTransplant( String user){
+		int userId = getUserId(user);
 		List<Transplant> transplantList = new ArrayList<Transplant>();
-		String select = "SELECT id, crop, direct_seed_to_transplant_time, transplant_to_harvest_time FROM transplant";
-		SqlRowSet rows = jdbcTemplate.queryForRowSet(select);
+		String select = "select transplant.id , transplant.crop , transplant.direct_seed_to_transplant_time , transplant.transplant_to_harvest_time from transplant join users_transplant on users_transplant.transplant_id = transplant.id where user_id = ?";
+		SqlRowSet rows = jdbcTemplate.queryForRowSet(select , userId);
 		
 		while(rows.next()) {
 			Transplant transplant = new Transplant();
@@ -58,10 +64,24 @@ public class JdbcTransplantDao implements TransplantDao {
 	}
 	
 
-	public Transplant updateTransplant(Transplant transplant) {
-		String update = "UPDATE transplant SET  crop = ?, direct_seed_to_transplant_time = ?, transplant_to_harvest_time = ? WHERE id = ?";
-		jdbcTemplate.update(update, transplant.getCrop(), transplant.getDirectSeedToTransplantTime(), transplant.getTransplantToHarvestTime(), transplant.getId());
+	public Transplant updateTransplant(Transplant transplant , String user) {
+		int userId = getUserId(user);
+		String update = "UPDATE transplant SET  crop = ?, direct_seed_to_transplant_time = ?, transplant_to_harvest_time = ? WHERE id = (select transplant_id from users_transplant where user_id = ? and transplant_id = ?)";
+		jdbcTemplate.update(update, transplant.getCrop(), transplant.getDirectSeedToTransplantTime(), transplant.getTransplantToHarvestTime(), userId,  transplant.getId());
 		return transplant;
+	}
+	
+	
+	private int getUserId(String user) {
+		int userId = 0;
+		String getUserId = "SELECT user_id FROM users Where username = ?";
+		SqlRowSet getId = jdbcTemplate.queryForRowSet(getUserId, user);
+		while (getId.next()) {
+			userId = getId.getInt("user_id");
+		}
+
+		return userId;
+
 	}
 
 }
