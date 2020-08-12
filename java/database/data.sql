@@ -1,5 +1,7 @@
-begin transaction;
+drop table if exists harvest ;
 
+begin transaction;
+select * from harvest;
 create table harvest(
         id serial,
         crop varchar(30) not null,
@@ -7,21 +9,23 @@ create table harvest(
         
         constraint pk_id primary key (id)
 );
-create table expiration(
-        id serial primary key,
-        days_to_expire int
-        );
 
-create table harvest_expiration(
-                expiration_id int,
-                harvest_id int,
-                constraint fk_expiration_id foreign key (expiration_id) references expiration(id),
-                constraint fk_harvest_id foreign key (harvest_id) references harvest(id)
+create table crops(
+        id serial,
+        area varchar(3) not null,
+        crop varchar(30) not null,
+        planting_date date not null,
+
+        constraint pk_crops_id primary key (id)
 );
+
+insert into crops values (default, 'A4', 'corn', '2020-07-14');
 
 insert into harvest values (default, 'corn', 90);
 
-rollback;
+select * from harvest;
+
+rollback transaction;
 
 --CREATE TABLE users (
 --	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
@@ -29,3 +33,10 @@ rollback;
 --	password_hash varchar(200) NOT NULL,
 --	role varchar(50) NOT NULL,
 --	CONSTRAINT PK_user PRIMARY KEY (user_id)
+
+INSERT INTO harvest (id, crop, direct_seed_to_harvest_time) VALUES (default, ?, ?) returning id;
+INSERT INTO crops (id, area, crop, planting_date) VALUES (default, ?, ?, ?);
+update crops set area = ?, planting_date = ? where crop = ?;
+SELECT id, area, crop, planting_date FROM crops where crop = ?;
+
+update crops set area = ?, crop = ?, planting_date = ? where id = ?;

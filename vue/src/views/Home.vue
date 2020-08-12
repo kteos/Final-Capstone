@@ -2,28 +2,27 @@
   <div class="home">
   <div class="header">
     <h1 class="title">Farm Assist</h1>
-    <span>making your day to day easier</span>
     </div>
-    <div class="menu1">
+    
       <side-bar-nav />
-    </div>
+    
   </div>
 </template>
 
 <script>
 // import HarvestFile from '@/components/HarvestFile'
 // import Harvests from '@/components/Harvests'
-import ExpirationFile from '@/components/ExpirationFile'
-import Expirations from '@/components/Expirations'
-import TransplantFile from '@/components/TransplantFile'
-import Transplants from '@/components/Transplants'
+// import ExpirationFile from '@/components/ExpirationFile'
+// import Expirations from '@/components/Expirations'
+// import TransplantFile from '@/components/TransplantFile'
+// import Transplants from '@/components/Transplants'
 // import HarvestView from '@/views/HarvestView'
-import AllHarvests from '@/components/AllHarvests'
+// import AllHarvests from '@/components/AllHarvests'
 import SideBarNav from '@/components/SideBarNav'
 // import SaleInfo from '@/components/SaleInfo'
-import WasteInfo from '@/components/WasteInfo'
+// import WasteInfo from '@/components/WasteInfo'
 // import CropsUpload from '@/components/CropsUpload'
-import AllCrops from '@/components/AllCrops'
+// import AllCrops from '@/components/AllCrops'
 
 
 export default {
@@ -31,15 +30,15 @@ export default {
   components: {
     // HarvestFile,
     // Harvests,
-    ExpirationFile,
-    Expirations,
-    TransplantFile,
-    Transplants,
+    // ExpirationFile,
+    // Expirations,
+    // TransplantFile,
+    // Transplants,
     // HarvestView,
-    AllHarvests,
+    // AllHarvests,
     SideBarNav,
-    WasteInfo,
-    AllCrops
+    // WasteInfo,
+    // AllCrops
   },
 };
 </script>
@@ -56,7 +55,7 @@ body{
   
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
-    "menu header ."
+    ". header ."
   ;
   grid-gap: 10px;
 }
@@ -104,7 +103,7 @@ table th{
     text-align: right;
 }
 
-.sidenav {
+/* .sidenav {
   color: white;
   height: 100%; 
   width: 0;
@@ -113,9 +112,9 @@ table th{
   top: 0; 
   left: 0;
   background-color: rgb(37, 35, 35); 
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  overflow-x: hidden; /* Disable horizontal scroll  
+  padding-top: 60px; /* Place content 60px from the top 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav 
 }
 
 .sidenav a {
@@ -140,12 +139,12 @@ table th{
 }
 
 .menu1 {
-    grid-area: menu;
+
     padding-bottom: 120px;
     padding-left: 50px;
     padding-right: 90px;
     align-content: top;
-}
+} */
 
 .title {
   font-family: 'Bungee';

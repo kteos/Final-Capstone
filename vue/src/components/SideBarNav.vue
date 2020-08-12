@@ -3,12 +3,12 @@
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">&times;</a>
         <a href="/">Home</a>
+        <span>Upload your information</span>
         <a href="/harvest">Harvest Info</a>
         <a href="/cropplan">Crop Plans</a>
         <a href="/transplant">Transplant Info</a>
         <a href="/expiration">Expiration Info</a>
         <a href="/form">Add Sales Info</a>
-        <a href="/login">Login</a>
         <a href="/logout">Logout</a>
       </div>
   <button class="menu" v-on:click="openNav()">Menu</button>
@@ -71,9 +71,11 @@ export default {
   font-size: 20px;
   grid-area: menu;
   background-color: gray;
-  margin-top: 50px;
+  margin-left: -30px;
+
   margin-bottom: 50px;
-  border-radius: 25px;
+  border-radius: 0px 25px 25px 0px;
+  float: left;
 }
 
 .menu:hover {

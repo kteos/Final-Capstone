@@ -1,11 +1,11 @@
 <template>
 <div>
     <form v-on:submit.prevent="addInfo">
-        <label for="productName">Product: </label>
+        <label for="productName">Crop Sold: </label>
         <input type="text" name="productName" v-model="newInfo.product" required>
-        <label for="amount">Amount: </label>
-        <input class="amountfield" type="number" name="amount" v-model="newInfo.amount" required>
-        <label for="howSold">How Sold: </label>
+        <label for="amount">Amount Sold (lbs/count): </label>
+        <input class="amountfield" type="number" name="amount" v-model="newInfo.amount" required><br>
+        <label for="howSold">Sales Channel: </label>
         <input type="text" name="howSold" v-model="newInfo.howSold" required>
         <input type="submit" />
     </form>
