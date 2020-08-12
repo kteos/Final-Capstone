@@ -1,5 +1,7 @@
 package com.techelevator.waste;
 
+import java.security.Principal;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +22,8 @@ public class WasteController {
 	
 	
 	@RequestMapping(path= "/waste/input", method = RequestMethod.POST)
-	void insertWaste(@RequestBody Waste waste ) {
-		dao.insertWaste(waste);
+	void insertWaste(@RequestBody Waste waste , Principal user ) {
+		dao.insertWaste(waste , user.getName());
 	}
 		
 

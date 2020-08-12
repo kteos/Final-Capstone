@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface ExpirationDao {
 	
-	void createExpiration(List<Expiration> expirations);
-	List<Expiration>getExpirations();
-	Expiration updateExpiration(Expiration expiration);
+	void createExpiration(List<Expiration> expirations, String userName);
+	List<Expiration>getExpirations(String userName);
+	Expiration updateExpiration(Expiration expiration, String userName);
 
 }
