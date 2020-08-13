@@ -12,6 +12,9 @@
   <div class="chart">
     <random-chart />
   </div>
+  <div class ="harvestInfo">
+    <router-link v-bind:to="{name: 'harvestview'}">Harvest Info</router-link>
+  </div>
   </div>
 </template>
 
@@ -46,15 +49,25 @@ export default {
  .home{
    display: grid;
    
-   grid-template-columns: 1fr 3fr 1fr;
+   grid-template-columns: 1fr 2fr 2fr 1fr;
    grid-template-areas: 
-     ". header ."
-     ". mission ."
-     ". chart ."
+     ". header header ."
+     ". mission mission ."
+     ". chart chart ."
+     ". harvestview . ."
+     ". . . ."
    ;
    grid-gap: 10px;
  }
  
+ .harvestInfo {
+   grid-area: harvestview;
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
+   background-color:rgb(164, 192, 188)
+ }
+
  .chart {
    grid-area: chart;
  }
