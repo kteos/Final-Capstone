@@ -3,7 +3,7 @@
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">&times;</a>
         <a href="/">Home</a>
-        <span>Upload your information</span>
+        <a href="/sale">Sales Chart</a>
         <a href="/harvest">Harvest Info</a>
         <a href="/cropplan">Crop Plans</a>
         <a href="/transplant">Transplant Info</a>

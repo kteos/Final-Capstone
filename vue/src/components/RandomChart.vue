@@ -1,12 +1,15 @@
 <template>
+<div>
+	<h1>Sales Chart</h1>
   <div class="small">
-    <line-chart :chart-data="datacollection" :options="options"></line-chart>
-    <button @click="fillData()">Randomize</button>
+    <line-chart v-if="loaded" :chart-data="datacollection" :options="options"></line-chart>
   </div>
+</div>
 </template>
 
 <script>
   import LineChart from '@/components/LineChart.js'
+  import SaleService from '@/services/SaleService'
 
   export default {
     components: {
@@ -14,8 +17,12 @@
     },
     data () {
       return {
+		sales: [],
+		products: [],
+		amount: [],
+		loaded: false,
         datacollection: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+				labels: [],
 				datasets: [
 					{
 						label: 'Data One',
@@ -23,7 +30,7 @@
 						pointBackgroundColor: 'white',
 						borderWidth: 1,
 						pointBorderColor: '#249EBF',
-						data: [40, 20, 30, 50, 90, 10, 20, 40, 50, 70, 90, 100]
+						data: []
                     }
                 ]
         },
@@ -60,19 +67,55 @@
 				},
 				responsive: true,
 				maintainAspectRatio: false,
-				height: 200
-		}
-      }
+                height: 200
+            }
+    }
     },
-    created() {
-        this.sale = this.$store.state.newSale;
+        methods: {
+            getAllSales() {
+                SaleService.getAllSales().then(response => {
+				this.sales = response.data;
+			
+
+				this.sales.forEach(sale => {
+					this.products.push(sale.product);
+					this.amount.push(sale.amount);
+				});
+
+				let data = {
+				labels: this.products,
+				datasets: [
+					{
+						label: 'Data One',
+						backgroundColor: '#f87979',
+						pointBackgroundColor: 'white',
+						borderWidth: 1,
+						pointBorderColor: '#249EBF',
+						data: this.amount
+                    }
+                ]
+        };
+				this.datacollection = data;
+
+				this.loaded = true;
+
+				console.log(this.datacollection.datasets.data);
+
+            });
+        }
+    },
+    mounted() {
+        this.getAllSales();
     }
   }
 </script>
 
 <style>
   .small {
+	background-color: white;
+	opacity: 0.85;
     max-width: 600px;
     margin:  150px auto;
+	border-radius: 25px;
   }
 </style>
