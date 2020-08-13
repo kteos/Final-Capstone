@@ -10,6 +10,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.12",
     "axios": "^0.19.2",
     "core-js": "^2.6.5",
     "jquery-csv": "^1.0.11",

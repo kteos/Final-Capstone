@@ -16,6 +16,12 @@ Vue.use(VueSidebarMenu)
  */
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
+const mailchimp = require('@mailchimp/mailchimp_marketing');
+
+mailchimp.setConfig({
+  apiKey: '3e182a575cd7a44aaf159cca78572ae6-us17',
+  server: 'us17',
+});
 
 if(currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;

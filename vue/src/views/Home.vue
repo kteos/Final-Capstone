@@ -5,7 +5,7 @@
     </div>
     
       <side-bar-nav />
-    
+    <button v-on:click="testEmail">TEST EMAIL HERE</button>
   </div>
 </template>
 
@@ -24,8 +24,10 @@ import SideBarNav from '@/components/SideBarNav'
 // import CropsUpload from '@/components/CropsUpload'
 // import AllCrops from '@/components/AllCrops'
 
+import mailchimp from "@mailchimp/mailchimp_marketing";
 
 export default {
+  
   name: "home",
   components: {
     // HarvestFile,
@@ -40,6 +42,40 @@ export default {
     // WasteInfo,
     // AllCrops
   },
+  methods: {
+  //   testEmail(){
+  //       const response = mailchimp.ping.get().then((response) => {
+  //         console.log(response);
+  //       });
+  // console.log(response);
+  //   },
+//     testEmail(){
+//       var request = require('request');
+
+// var options = {
+//     url: 'apikey=3e182a575cd7a44aaf159cca78572ae6-us17',
+//     auth: {
+//         'user': '`test`',
+//         'pass': '${3e182a575cd7a44aaf159cca78572ae6-us17}'
+//     },
+//     callback(error, response, body) {
+//     if (!error && response.statusCode == 200) {
+//         console.log(body);
+//     }
+// }
+
+testEmail(){
+  mailchimp.setConfig({
+  apiKey: '3e182a575cd7a44aaf159cca78572ae6-us17',
+  server: 'us17',
+  })
+  mailchimp.ping.get().then((response) => {
+    console.log(response);
+  })
+}
+
+
+  }
 };
 </script>
 
