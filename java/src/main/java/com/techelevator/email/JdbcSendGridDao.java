@@ -21,7 +21,7 @@ public class JdbcSendGridDao implements SendGridDao{
 		HttpResponse<String> response = Unirest.post("https://api.sendgrid.com/v3/mail/send")
 				  .header("authorization", "Bearer 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")
 				  .header("content-type", "application/json")
-				  .body("{\"personalizations\":[{\"to\":[{\"email\":\"zacharykolker93@gmail.com\",\"name\":\"John Doe\"}],\"subject\":\"Hello, World!\"}],\"content\":[{\"type\":\"text/plain\",\"value\":\"Heya! please fucking work lmao\"}],\"from\":{\"email\":\"leozverres@gmail.com\",\"name\":\"Sam Smith\"}}")
+				  .body("{\"personalizations\":[{\"to\":[{\"email\":\"zacharykolker93@gmail.com\",\"name\":\"John Doe\"}],\"subject\":\"Hello, World!\"}],\"content\":[{\"type\":\"text/plain\",\"value\":\"Heya! please work lmao\"}],\"from\":{\"email\":\"leozverres@gmail.com\",\"name\":\"Sam Smith\"}}")
 				  .asString();
 	}
 	
