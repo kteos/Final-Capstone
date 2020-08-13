@@ -5,11 +5,29 @@
     </div>
     
       <side-bar-nav />
+<<<<<<< HEAD
+    </div>
+  <div class="chart">
+    <random-chart />
+  </div>
+=======
     
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
+import ExpirationFile from '@/components/ExpirationFile'
+import Expirations from '@/components/Expirations'
+import TransplantFile from '@/components/TransplantFile'
+import Transplants from '@/components/Transplants'
+import AllHarvests from '@/components/AllHarvests'
+import SideBarNav from '@/components/SideBarNav'
+import WasteInfo from '@/components/WasteInfo'
+import AllCrops from '@/components/AllCrops'
+import RandomChart from '@/components/RandomChart'
+=======
 // import HarvestFile from '@/components/HarvestFile'
 // import Harvests from '@/components/Harvests'
 // import ExpirationFile from '@/components/ExpirationFile'
@@ -23,11 +41,24 @@ import SideBarNav from '@/components/SideBarNav'
 // import WasteInfo from '@/components/WasteInfo'
 // import CropsUpload from '@/components/CropsUpload'
 // import AllCrops from '@/components/AllCrops'
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
 
 
 export default {
   name: "home",
   components: {
+<<<<<<< HEAD
+    ExpirationFile,
+    Expirations,
+    TransplantFile,
+    Transplants,
+    AllHarvests,
+    SideBarNav,
+    WasteInfo,
+    AllCrops,
+    RandomChart
+  }
+=======
     // HarvestFile,
     // Harvests,
     // ExpirationFile,
@@ -40,6 +71,7 @@ export default {
     // WasteInfo,
     // AllCrops
   },
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
 };
 </script>
 
@@ -55,9 +87,18 @@ body{
   
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
+<<<<<<< HEAD
+    "menu header ."
+    ". chart ."
+=======
     ". header ."
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
   ;
   grid-gap: 10px;
+}
+
+.chart {
+  grid-area: chart;
 }
 
 .header{

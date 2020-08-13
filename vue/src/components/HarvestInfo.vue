@@ -2,11 +2,11 @@
 <div>
     <form v-on:submit.prevent="addInfo">
         <label for="area">Area Identifier: </label>
-        <input type="number" name="area" v-model="newHarvestInfo.areaIdentifier" required>
+        <input type="number" name="area" v-model="newHarvestInfo.areaIdentifier" required><br>
         <label for="crop">Crop: </label>
         <input type="text" name="crop" v-model="newHarvestInfo.crop" required>
         <label for="count">Count: </label>
-        <input type="number" name="count" v-model="newHarvestInfo.count" required>
+        <input type="number" name="count" v-model="newHarvestInfo.count" required><br>
         <label for="weight">Weight: </label>
         <input type="number" name="weight" v-model="newHarvestInfo.weight" required>
         <input type="submit" />
@@ -38,3 +38,15 @@ export default {
 }
 
 </script>
+
+<style>
+
+label {
+    margin-bottom: 20px;    
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+</style>
