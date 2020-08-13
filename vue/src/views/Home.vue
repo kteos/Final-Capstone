@@ -2,8 +2,10 @@
   <div class="home">
   <div class="header">
     <h1 class="title">Farm Assist</h1>
+  </div>
+  <div class="mission">
     <p class="details">Designed to help make farmers day to day easier</p>
-    </div>
+  </div>
     <div class="menu1">
       <side-bar-nav />
     </div>
@@ -36,7 +38,7 @@ export default {
  }
  
  .details {
-   color: rgb(51, 49, 49);
+   color: rgb(85, 82, 82);
    display: flex;
    align-content: bottom;
  }
@@ -46,7 +48,8 @@ export default {
    
    grid-template-columns: 1fr 3fr 1fr;
    grid-template-areas: 
-     ". header header"
+     ". header ."
+     ". mission ."
      ". chart ."
    ;
    grid-gap: 10px;
@@ -149,5 +152,13 @@ export default {
    color: rgb(85, 82, 82);
  }
  
+ .mission {
+   grid-area: mission;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: top;
+   border-radius: 3px;
+   font-family: 'Bungee';
+ }
 
 </style>
