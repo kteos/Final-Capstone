@@ -10,6 +10,7 @@ import ExpirationView from '../views/ExpirationView.vue'
 import TransplantView from '../views/TransplantView.vue'
 import FormView from '../views/FormView.vue'
 import CropPlanView from '../views/CropPlanView.vue'
+import SalesChartView from '../views/SalesChartView.vue'
 
 Vue.use(Router)
 
@@ -94,6 +95,14 @@ const router = new Router({
       path: "/cropplan",
       name: "cropplanview",
       component: CropPlanView,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/sale',
+      name: "salesview",
+      component: SalesChartView,
       meta: {
         requiresAuth: false
       }

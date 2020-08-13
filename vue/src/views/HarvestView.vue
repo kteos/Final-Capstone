@@ -44,7 +44,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
-    "menu title ."
+    "menu title title"
     ". upload ."
     ". display ."
     ;

@@ -50,7 +50,7 @@ h1 {
     font-family: 'Bungee';
 }
 
-.harvesttitle {
+.croptitle {
     font-size: 60px;
     color: rgb(85, 82, 82);
 }

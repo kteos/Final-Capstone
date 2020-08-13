@@ -74,7 +74,7 @@ public class JdbcSaleDao implements SaleFormDao {
 		while (rows.next()) {
 			SaleForm sale = new SaleForm();
 			sale.setProduct(rows.getString("product"));
-			sale.setAmount((BigDecimal.valueOf(rows.getInt("amount"))));
+			sale.setAmount((BigDecimal.valueOf(rows.getDouble("amount"))));
 			fullList.add(sale);
 		}
 		
