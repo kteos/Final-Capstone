@@ -13,7 +13,13 @@
     <random-chart />
   </div>
   <div class ="harvestInfo">
-    <router-link v-bind:to="{name: 'harvestview'}">Harvest Info</router-link>
+    <router-link class="link" v-bind:to="{name: 'harvestview'}">Harvest Info</router-link>
+  </div>
+    <div class ="transplantInfo">
+    <router-link class="link" v-bind:to="{name: 'transplantview'}">Transplant Info</router-link>
+  </div>
+  <div class ="expirationInfo">
+    <router-link class="link" v-bind:to="{name: 'expirationview'}">Expiration Info</router-link>
   </div>
   </div>
 </template>
@@ -21,7 +27,6 @@
 <script>
 import SideBarNav from '@/components/SideBarNav'
 import RandomChart from '@/components/RandomChart'
-
 
 export default {
   
@@ -54,18 +59,36 @@ export default {
      ". header header ."
      ". mission mission ."
      ". chart chart ."
-     ". harvestview . ."
-     ". . . ."
+     ". harvestview transplantview ."
+     ". expirationview . ."
    ;
    grid-gap: 10px;
  }
- 
+
+ .expirationInfo {
+   grid-area: expirationview;
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
+   background-color: #fefae0;
+   border-radius: 25px;
+ }
+
+ .transplantInfo {
+   grid-area: transplantview;
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
+   background-color: #89975b;
+   border-radius: 25px;
+ }
  .harvestInfo {
    grid-area: harvestview;
    font-size: 40px;
    display: flex;
    justify-content: center;
-   background-color:rgb(164, 192, 188)
+   background-color: #dda15e;
+   border-radius: 25px;
  }
 
  .chart {
@@ -174,4 +197,12 @@ export default {
    font-family: 'Bungee';
  }
 
+ .link {
+   text-decoration: none;
+   color: rgb(51, 49, 49);
+ }
+
+ .link:hover {
+   text-decoration: underline;
+ }
 </style>
