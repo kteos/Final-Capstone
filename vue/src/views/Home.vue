@@ -2,38 +2,29 @@
   <div class="home">
   <div class="header">
     <h1 class="title">Farm Assist</h1>
+    <p class="details">Designed to help make farmers day to day easier</p>
     </div>
     <div class="menu1">
       <side-bar-nav />
     </div>
+  <div class="chart">
+    <random-chart />
+  </div>
   </div>
 </template>
 
 <script>
-import ExpirationFile from '@/components/ExpirationFile'
-import Expirations from '@/components/Expirations'
-import TransplantFile from '@/components/TransplantFile'
-import Transplants from '@/components/Transplants'
-import AllHarvests from '@/components/AllHarvests'
 import SideBarNav from '@/components/SideBarNav'
-import WasteInfo from '@/components/WasteInfo'
-import AllCrops from '@/components/AllCrops'
 import RandomChart from '@/components/RandomChart'
 
 
 export default {
+  
   name: "home",
   components: {
-    ExpirationFile,
-    Expirations,
-    TransplantFile,
-    Transplants,
-    AllHarvests,
     SideBarNav,
-    WasteInfo,
-    AllCrops,
     RandomChart
-  }
+  },
 };
 </script>
 
@@ -44,16 +35,27 @@ export default {
    color: black;
  }
  
+ .details {
+   color: rgb(51, 49, 49);
+   display: flex;
+   align-content: bottom;
+ }
+
  .home{
    display: grid;
    
    grid-template-columns: 1fr 3fr 1fr;
    grid-template-areas: 
-     ". header ."
+     ". header header"
+     ". chart ."
    ;
    grid-gap: 10px;
  }
  
+ .chart {
+   grid-area: chart;
+ }
+
  .header{
    color: rgb(51, 49, 49);
    grid-area: header;
@@ -61,6 +63,7 @@ export default {
    justify-content: space-evenly;
    align-items: top;
    border-radius: 3px;
+   font-family: 'Bungee';
  }
  
  .expiration{

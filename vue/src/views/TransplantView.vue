@@ -1,5 +1,5 @@
 <template>
-    <div class="all">
+    <div class="plant">
       <div class="title">
          <h1 class="transplanttitle">Transplant Information</h1>
       </div>
@@ -42,7 +42,7 @@ h1 {
     font-size: 60px;
 }
 
-.all {
+.plant {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
@@ -57,7 +57,7 @@ h1 {
     font-family: 'Bungee';
 }
 
-.harvesttitle {
+.transplanttitle {
     font-size: 60px;
     color: rgb(85, 82, 82);
 }

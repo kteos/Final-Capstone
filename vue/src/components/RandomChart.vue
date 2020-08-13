@@ -1,6 +1,5 @@
 <template>
 <div>
-	<h1>Sales Chart</h1>
   <div class="small">
     <line-chart v-if="loaded" :chart-data="datacollection" :options="options"></line-chart>
   </div>
@@ -35,8 +34,18 @@
                 ]
         },
         options: {
+			title: {
+				display: true,
+				text: "Crop Sales Data",
+				position: 'top',
+				fontSize: 18
+			},
 				scales: {
 					yAxes: [{
+						scaleLabel: {
+						display: true,
+						labelString: 'Sales (S)'
+      					},
 						ticks: {
 							beginAtZero: true
 						},
@@ -45,6 +54,10 @@
 						}
 					}],
 					xAxes: [{
+						scaleLabel: {
+						display: true,
+						labelString: 'Crop Name'
+      					},
 						ticks: {
 							beginAtZero: true
 						},

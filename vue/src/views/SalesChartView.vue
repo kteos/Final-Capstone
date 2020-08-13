@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="all">
+      <h1>Crop Sales</h1>
       <side-bar-nav />
       <random-chart />
   </div>
