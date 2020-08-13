@@ -12,6 +12,18 @@
   <div class="chart">
     <random-chart />
   </div>
+  <div class ="harvestInfo">
+    <router-link class="link" v-bind:to="{name: 'harvestview'}">Harvest Info</router-link>
+  </div>
+    <div class ="transplantInfo">
+    <router-link class="link" v-bind:to="{name: 'transplantview'}">Transplant Info</router-link>
+  </div>
+  <div class ="expirationInfo">
+    <router-link class="link" v-bind:to="{name: 'expirationview'}">Expiration Info</router-link>
+  </div>
+  <div class ="addInfo">
+    <router-link class="link" v-bind:to="{name: 'formview'}">Add Info</router-link>
+  </div>
   <div class="email-button">
     <email-test />
   </div>
@@ -55,18 +67,66 @@ export default {
  .home{
    display: grid;
    
-   grid-template-columns: 1fr 3fr 1fr;
+   grid-template-columns: 1fr 2fr 2fr 1fr;
    grid-template-areas: 
-     ". header ."
-     ". mission ."
-     ". chart ."
-     ". email-button ."
+     ". header header ."
+     ". mission mission ."
+     ". chart chart ."
+     ". harvestview transplantview ."
+     ". expirationview addview ."
+     ". . . email-button"
    ;
    grid-gap: 10px;
  }
- 
+
+ .addInfo {
+   grid-area: addview;
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #ad8dbd;
+   border-radius: 25px;
+   height: 80px;
+ }
+
+ .expirationInfo {
+   grid-area: expirationview;
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #fefae0;
+   border-radius: 25px;
+   height: 80px;
+   position: relative;
+ }
+
+ .transplantInfo {
+   grid-area: transplantview;
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #89975b;
+   border-radius: 25px;
+   height: 80px;
+ }
+ .harvestInfo {
+   grid-area: harvestview;
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #dda15e;
+   border-radius: 25px;
+   height: 80px;
+ }
+
  .chart {
    grid-area: chart;
+   height: 100%;
+   width: 100%;
  }
 
  .header{
@@ -113,49 +173,6 @@ export default {
      text-align: right;
  }
  
- /* .sidenav {
-   color: white;
-   height: 100%; 
-   width: 0;
-   position: fixed;
-   z-index: 1; 
-   top: 0; 
-   left: 0;
-   background-color: rgb(37, 35, 35); 
-   overflow-x: hidden; /* Disable horizontal scroll  
-   padding-top: 60px; /* Place content 60px from the top 
-   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav 
- }
- 
- .sidenav a {
-   padding: 8px 8px 8px 32px;
-   text-decoration: none;
-   font-size: 25px;
-   color: #818181;
-   display: block;
-   transition: 0.3s;
- }
- 
- .sidenav a:hover {
-   color: #f1f1f1;
- }
- 
- .sidenav .closebtn {
-   position: absolute;
-   top: 0;
-   right: 25px;
-   font-size: 36px;
-   margin-left: 50px;
- }
- 
- .menu1 {
- 
-     padding-bottom: 120px;
-     padding-left: 50px;
-     padding-right: 90px;
-     align-content: top;
- } */
- 
  .title {
    font-family: 'Bungee';
    font-size: 60px;
@@ -170,5 +187,15 @@ export default {
    border-radius: 3px;
    font-family: 'Bungee';
  }
+
+ .link {
+   text-decoration: none;
+   color: rgb(51, 49, 49);
+ }
+
+ .link:hover {
+   text-decoration: underline;
+ }
+
 
 </style>

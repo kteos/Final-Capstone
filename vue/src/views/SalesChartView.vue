@@ -1,5 +1,5 @@
 <template>
-  <div class="all">
+  <div class="whole">
       <h1>Crop Sales</h1>
       <side-bar-nav />
       <random-chart />
@@ -21,5 +21,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>
