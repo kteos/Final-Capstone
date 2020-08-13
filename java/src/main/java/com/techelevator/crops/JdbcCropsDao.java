@@ -16,24 +16,32 @@ public class JdbcCropsDao implements CropsDao{
 		this.jd = jdbcTemplate;
 	}
 	
-	public void createCrops(List<Crops> crops) {
-		String insert = "INSERT INTO crops (id, area, crop, planting_date) VALUES (default, ?, ?, ?)";
-		String update = "update crops set area = ?, planting_date = ? where crop = ?";
+	public void createCrops(List<Crops> crops , String user) {
+		int userId = getUserId(user);
+		String insertJoins = "INSERT INTO users_crop (user_id, crop_id) VALUES (?, ?)";
+		String insert = "INSERT INTO crops (id, area, crop, planting_date) VALUES (default, ?, ?, ?) returning id";
+		String update = "update crops set area = ?, planting_date = ? where crop = ? ";
 		String select = "SELECT id, area, crop, planting_date FROM crops where crop = ?";
 		for(Crops c : crops) {
 			SqlRowSet rows = jd.queryForRowSet(select, c.getCrop());
 			if(rows.next()) {
 				jd.update(update, c.getArea(), c.getPlantingDate(), c.getCrop());
 			} else {
-				jd.update(insert, c.getArea(), c.getCrop(), c.getPlantingDate());
+				SqlRowSet id =jd.queryForRowSet(insert, c.getArea(), c.getCrop(), c.getPlantingDate());
+				while ( id.next() ) {
+					c.setId(id.getInt("id"));
+				}
+				jd.update(insertJoins, userId, c.getId());
+				
 			}
 		}
 	}
 	
-	public List<Crops> getAllCrops(){
+	public List<Crops> getAllCrops(String user){
+		int userId = getUserId(user);
 		List<Crops> crops = new ArrayList<Crops>();
-		String select = "SELECT id, area, crop, planting_date FROM crops";
-		SqlRowSet rows = jd.queryForRowSet(select);
+		String select = "select crops.id,  crops.area , crops.planting_date , crops.crop from crops join users_crop on users_crop.crop_id = crops.id where user_id = ?";
+		SqlRowSet rows = jd.queryForRowSet(select , userId);
 		
 		while(rows.next()) {
 			Crops crop = new Crops();
@@ -46,8 +54,22 @@ public class JdbcCropsDao implements CropsDao{
 		return crops;
 	}
 	
-	public void updateCrops(Crops crop) {
-		String update = "update crops set area = ?, crop = ?, planting_date = ? where id = ?";
-		jd.update(update, crop.getArea(), crop.getCrop(),crop.getPlantingDate(),crop.getId());
+	public void updateCrops(Crops crop , String user) {
+		int userId = getUserId(user);
+		String update = "UPDATE crops SET  area = ?, crop = ?, planting_date = ? WHERE id = (select crop_id from users_crop where user_id = ? and crop_id = ?)";
+		jd.update(update, crop.getArea(), crop.getCrop(),crop.getPlantingDate(), userId , crop.getId());
+	}
+	
+	
+	private int getUserId(String user) {
+		int userId = 0;
+		String getUserId = "SELECT user_id FROM users Where username = ?";
+		SqlRowSet getId = jd.queryForRowSet(getUserId, user);
+		while (getId.next()) {
+			userId = getId.getInt("user_id");
+		}
+
+		return userId;
+
 	}
 }
