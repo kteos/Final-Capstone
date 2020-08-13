@@ -5,11 +5,33 @@
     </div>
     
       <side-bar-nav />
+<<<<<<< HEAD
     <button v-on:click="testEmail">TEST EMAIL HERE</button>
+=======
+<<<<<<< HEAD
+    </div>
+  <div class="chart">
+    <random-chart />
+  </div>
+=======
+    
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
+>>>>>>> 234eac0a886c5f66eaab1ec02b3e9bc7f3ed94d8
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
+import ExpirationFile from '@/components/ExpirationFile'
+import Expirations from '@/components/Expirations'
+import TransplantFile from '@/components/TransplantFile'
+import Transplants from '@/components/Transplants'
+import AllHarvests from '@/components/AllHarvests'
+import SideBarNav from '@/components/SideBarNav'
+import WasteInfo from '@/components/WasteInfo'
+import AllCrops from '@/components/AllCrops'
+import RandomChart from '@/components/RandomChart'
+=======
 // import HarvestFile from '@/components/HarvestFile'
 // import Harvests from '@/components/Harvests'
 // import ExpirationFile from '@/components/ExpirationFile'
@@ -23,6 +45,7 @@ import SideBarNav from '@/components/SideBarNav'
 // import WasteInfo from '@/components/WasteInfo'
 // import CropsUpload from '@/components/CropsUpload'
 // import AllCrops from '@/components/AllCrops'
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
 
 import mailchimp from "@mailchimp/mailchimp_marketing";
 
@@ -30,6 +53,18 @@ export default {
   
   name: "home",
   components: {
+<<<<<<< HEAD
+    ExpirationFile,
+    Expirations,
+    TransplantFile,
+    Transplants,
+    AllHarvests,
+    SideBarNav,
+    WasteInfo,
+    AllCrops,
+    RandomChart
+  }
+=======
     // HarvestFile,
     // Harvests,
     // ExpirationFile,
@@ -42,6 +77,7 @@ export default {
     // WasteInfo,
     // AllCrops
   },
+<<<<<<< HEAD
   methods: {
   //   testEmail(){
   //       const response = mailchimp.ping.get().then((response) => {
@@ -76,6 +112,9 @@ testEmail(){
 
 
   }
+=======
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
+>>>>>>> 234eac0a886c5f66eaab1ec02b3e9bc7f3ed94d8
 };
 </script>
 
@@ -91,9 +130,18 @@ body{
   
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
+<<<<<<< HEAD
+    "menu header ."
+    ". chart ."
+=======
     ". header ."
+>>>>>>> 7b8c655e6cf2a30d95123e2d607548a8f4c96bb5
   ;
   grid-gap: 10px;
+}
+
+.chart {
+  grid-area: chart;
 }
 
 .header{

@@ -1,5 +1,7 @@
 package com.techelevator.Harvestinfo;
 
+import java.security.Principal;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,8 @@ public class HarvestInfoController {
 	}
 	
 	@RequestMapping(path= "/harvestinfo/input", method = RequestMethod.POST)
-	public void harvestInfoinsert(@RequestBody HarvestInfo harvestInfo) {
-		dao.insertHarvestInfo(harvestInfo);
+	public void harvestInfoinsert(@RequestBody HarvestInfo harvestInfo, Principal user) {
+		dao.insertHarvestInfo(harvestInfo , user.getName());
 	}
 
 }

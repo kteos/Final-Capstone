@@ -16,7 +16,8 @@ public class JdbcHarvestDao implements HarvestDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public void createHarvests(Harvest[] harvest) {
+	public void createHarvests(Harvest[] harvest , String userName) {
+		int userId = getUserId(userName);
 		
 
 		for (Harvest harvest2 : harvest) {
@@ -34,6 +35,9 @@ public class JdbcHarvestDao implements HarvestDao {
 				while (row.next()) {
 					harvest2.setId(row.getInt("id"));
 				}
+				String insertJoins = "INSERT INTO users_harvest (user_id, harvest_id) VALUES (?, ?)";
+				jdbcTemplate.update(insertJoins, userId, harvest2.getId());
+				
 				
 			}
 
@@ -41,10 +45,11 @@ public class JdbcHarvestDao implements HarvestDao {
 
 	}
 	
-	public  List<Harvest> cropNames(){
+	public  List<Harvest> cropNames(String username){
 		List<Harvest> crops = new ArrayList<Harvest>();
-		String select = "SELECT id, crop, direct_seed_to_harvest_time FROM harvest";
-		SqlRowSet rows = jdbcTemplate.queryForRowSet(select);
+		int userId = getUserId(username);
+		String select = "Select harvest.id , harvest.crop , harvest.direct_seed_to_harvest_time from harvest join users_harvest on users_harvest.harvest_id = harvest.id where user_id = ?";
+		SqlRowSet rows = jdbcTemplate.queryForRowSet(select, userId);
 		
 		while(rows.next()) {
 			Harvest harvest= new Harvest();
@@ -57,10 +62,26 @@ public class JdbcHarvestDao implements HarvestDao {
 	}
 
 	@Override
-	public Harvest updateHarvest(Harvest harvest) {
-		String update = "UPDATE harvest SET  crop = ?, direct_seed_to_harvest_time = ? WHERE id = ?";
-		jdbcTemplate.update(update, harvest.getCrop(), harvest.getDirectSeedToHarvestTime(), harvest.getId());
+	public Harvest updateHarvest(Harvest harvest, String username) {
+		int userid = getUserId(username);
+		String update = "UPDATE harvest SET crop = ? , direct_seed_to_harvest_time = ? WHERE id = (select harvest_id from users_harvest where harvest_id = ? and user_id = ?)";
+		jdbcTemplate.update(update, harvest.getCrop(), harvest.getDirectSeedToHarvestTime(), harvest.getId(),userid);
 		return harvest;
+	}
+	
+	
+	
+	
+	private int getUserId(String user) {
+		int userId = 0;
+		String getUserId = "SELECT user_id FROM users Where username = ?";
+		SqlRowSet getId = jdbcTemplate.queryForRowSet(getUserId, user);
+		while (getId.next()) {
+			userId = getId.getInt("user_id");
+		}
+
+		return userId;
+
 	}
 }
 

@@ -1,5 +1,7 @@
 package com.techelevator.loss;
 
+import java.security.Principal;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,8 @@ public class LossController {
 	}
 	
 	@RequestMapping(path = "/loss/input" , method= RequestMethod.POST)
-	void insertLossInfo(@RequestBody Loss loss) {
-		dao.insertLossInfo(loss);
+	void insertLossInfo(@RequestBody Loss loss , Principal user) {
+		dao.insertLossInfo(loss , user.getName());
 	}
 
 }

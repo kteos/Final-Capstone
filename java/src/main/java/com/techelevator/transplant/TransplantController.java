@@ -1,5 +1,6 @@
 package com.techelevator.transplant;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,18 +21,18 @@ public class TransplantController {
 	}
 	
 	@RequestMapping(path = "/transplant/upload", method = RequestMethod.POST)
-	public void uploadTransplants(@RequestBody Transplant[] transplant )  {
-		dao.createTransplants(transplant);
+	public void uploadTransplants(@RequestBody Transplant[] transplant , Principal user )  {
+		dao.createTransplants(transplant , user.getName());
 	}
 	
 	@RequestMapping(path= "/transplant" , method = RequestMethod.GET)
-	List<Transplant> getListOfTransplants(){
-		return dao.listTransplant();
+	List<Transplant> getListOfTransplants(Principal user){
+		return dao.listTransplant(user.getName());
 	}
 	
 	@RequestMapping(path="/transplant/update", method=RequestMethod.POST)
-	public Transplant updateTransplant(@RequestBody Transplant transplant)  {
-		return dao.updateTransplant(transplant);
+	public Transplant updateTransplant(@RequestBody Transplant transplant, Principal user)  {
+		return dao.updateTransplant(transplant, user.getName() );
 	}
 	
 }
