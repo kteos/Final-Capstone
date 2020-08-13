@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jayway.jsonpath.internal.Path;
-
 @RestController
 @CrossOrigin
 
@@ -24,7 +22,7 @@ public class HarvestInfoController {
 	
 	@RequestMapping(path= "/harvestinfo/input", method = RequestMethod.POST)
 	public void harvestInfoinsert(@RequestBody HarvestInfo harvestInfo, Principal user) {
-		dao.insertHarvestInfo(harvestInfo , user.getName());
+		dao.insertHarvestInfo(harvestInfo, user.getName());
 	}
 
 }
