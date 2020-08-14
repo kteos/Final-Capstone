@@ -33,7 +33,7 @@ public class JdbcSendGridDao implements SendGridDao{
 						  user + 
 						  "\",\"name\":\"User\"}],\"subject\":\"Daily Notification Farm Assist\"}],\"content\":[{\"type\":\"text/plain\",\"value\":\"" +
 						  "You've signed up for daily notifications with Farm Assist. You harvested tomatos 2 days ago and haven't sold them yet. They are going to go bad soon. Hey, Field A25 should have corn ready for harvest soon." + 
-						  "\"}],\"from\":{\"email\":\"leozverres@gmail.com\",\"name\":\"Farm Assist\"}}")
+						  "\"}],\"from\":{\"email\":\"noreplyfarmassist@gmail.com\",\"name\":\"Farm Assist\"}}")
 				  .asString();
 	}
 	
