@@ -1,6 +1,6 @@
 <template>
   <div>
-      <button v-on:click.prevent="testEmail">Send a test email</button>
+      <button v-on:click.prevent="testEmail">Send notification</button>
   </div>
 </template>
 
