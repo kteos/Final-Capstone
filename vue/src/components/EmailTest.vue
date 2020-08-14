@@ -22,5 +22,7 @@ export default {
 </script>
 
 <style>
-
+div button {
+    border-radius: 5px;
+}
 </style>
