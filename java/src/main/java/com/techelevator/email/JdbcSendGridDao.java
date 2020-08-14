@@ -25,55 +25,25 @@ import org.json.*;
 @Component
 public class JdbcSendGridDao implements SendGridDao{
 
-	public void sendEmail() {
+	public void sendEmail(String user) {
 		HttpResponse<String> response = Unirest.post("https://api.sendgrid.com/v3/mail/send")
 				  .header("authorization", "Bearer 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")
 				  .header("content-type", "application/json")
-				  .body("{\"personalizations\":[{\"to\":[{\"email\":\"zacharykolker93@gmail.com\",\"name\":\"John Doe\"}],\"subject\":\"Hello, World!\"}],\"content\":[{\"type\":\"text/plain\",\"value\":\"Heya! please work lmao\"}],\"from\":{\"email\":\"leozverres@gmail.com\",\"name\":\"Sam Smith\"}}")
+				  .body("{\"personalizations\":[{\"to\":[{\"email\":\"" +
+						  user + 
+						  "\",\"name\":\"User\"}],\"subject\":\"Daily Notification Farm Assist\"}],\"content\":[{\"type\":\"text/plain\",\"value\":\"" +
+						  "You've signed up for daily notifications with Farm Assist. You harvested tomatos 2 days ago and haven't sold them yet. They are going to go bad soon. Hey, Field A25 should have corn ready for harvest soon." + 
+						  "\"}],\"from\":{\"email\":\"leozverres@gmail.com\",\"name\":\"Farm Assist\"}}")
 				  .asString();
 	}
 	
+	/*
+	 * Hey, you need to seed the following crops today: carrots, beets, lettuce. 
+	 * Hey, your tomato and pepper transplants should be ready for field 1 today.
+		Hey, Field 1 should have peppers ready for harvest soon. 
+		You harvested tomatoes 3 days ago and haven't sold them yet. They are going to go bad soon.
+	 */
 	
-//	public String jsonBuilder() {
-////		String[] person = {"to","subject"};
-////		Map<String,String> to = new HashMap<String,String>();
-////		to.put("email", "zacharykolker93@gmail.com");
-////		to.put("name","zachary");
-////		String[] subject = {""};
-////		try {
-////		String jsonString = new JSONObject()
-////				.put("personalizations",person).toString();
-////		return jsonString;
-////		}catch(Exception e) {
-////			System.out.println(e.getMessage());
-////		}
-////		return null;
-////		final JsonNodeFactory factory = JsonNodeFactory.instance;
-////		final ObjectNode node = factory.objectNode();
-////		final ObjectNode child = factory.objectNode();
-////		
-//	}
-	   public void sendGrid() throws IOException, java.io.IOException {
 
-	       Email from = new Email("zacharykolker93@gmail.com");
-	       Email to = new Email("leozverres@gmail.com"); // use your own email address here
-
-	       String subject = "Sending with Twilio SendGrid is Fun";
-	       Content content = new Content("text/html", "and <em>easy</em> to do anywhere with <strong>Java</strong>");
-
-	       Mail mail = new Mail(from, subject, to, content);
-
-	       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-	       Request request = new Request();
-
-	       request.setMethod(Method.POST);
-	       request.setEndpoint("mail/send");
-	       request.setBody(mail.build());
-
-	       Response response = sg.api(request);
-
-	       System.out.println(response.getStatusCode());
-	       System.out.println(response.getHeaders());
-	       System.out.println(response.getBody());
-	   }
+	
 }

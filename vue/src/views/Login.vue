@@ -18,12 +18,12 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only">Email Address</label>
       <input
-        type="text"
+        type="email"
         id="username"
         class="form-control"
-        placeholder="Username"
+        placeholder="yourEmail@domain.com"
         v-model="user.username"
         required
         autofocus
@@ -112,7 +112,7 @@ form {
   opacity: 0.9; 
 }
 
-input[type=text], input[type=password] {
+input[type=email], input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

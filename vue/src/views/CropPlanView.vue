@@ -3,9 +3,9 @@
       <div class="title">
          <h1 class="croptitle">Crop Plans</h1>
       </div>
-      <div class ="menu2">
+
         <side-bar-nav />
-      </div>
+
       <div class ="upload">
         <p>Enter Crop Plans</p> 
         <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding plant date.</p>
@@ -39,7 +39,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
-    "menu title ."
+    ". title ."
     ". upload ."
     ". display ."
     ;
@@ -54,13 +54,7 @@ h1 {
     font-size: 60px;
     color: rgb(85, 82, 82);
 }
-.menu2 {
-    grid-area: menu;
-    padding-bottom: 120px;
-    padding-left: 50px;
-    padding-right: 90px;
-    align-content: top;
-}
+
 
 .upload {
     grid-area: upload;

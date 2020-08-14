@@ -3,9 +3,9 @@
       <div class="title">
          <h1 class="formttitle">Sales Information</h1>
       </div>
-      <div class ="menu2">
+
         <side-bar-nav />
-      </div>
+   
     <div class="secondarytitle">
         <h2>Use the forms below to add relevant information about your harvest including Harvest, Sales, Loss, and Waste.</h2>
     </div>
@@ -75,7 +75,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
-    "menu title title"
+    ". title title"
     ". secondarytitle ."
     ". harvest ."
     ". sale ."

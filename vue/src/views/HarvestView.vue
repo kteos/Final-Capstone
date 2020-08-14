@@ -3,9 +3,8 @@
       <div class="title">
          <h1 class="harvesttitle">Harvest Information</h1>
       </div>
-      <div class ="menu2">
+ 
         <side-bar-nav />
-      </div>
       <div class ="upload">
         <p>Enter Harvest Information</p> 
         <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding Direct Seed to Harvest Time in days.</p>

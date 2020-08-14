@@ -3,9 +3,9 @@
       <div class="title">
          <h1 class="transplanttitle">Transplant Information</h1>
       </div>
-      <div class ="menu2">
+   
         <side-bar-nav />
-      </div>
+    
       <div class ="upload">
         <p>Enter Transplant Information</p> 
         <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name, the corresponding Direct Seed to Transplant Time in days, and Transplant to Harvest Time in days.</p>

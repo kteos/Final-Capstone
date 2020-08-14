@@ -3,9 +3,9 @@
       <div class="title">
          <h1 class="expirtitle">Expiration Information</h1>
       </div>
-      <div class ="menu2">
+
         <side-bar-nav />
-      </div>
+
       <div class ="upload">
         <p>Enter Crop Expiration Information</p> 
         <p class="use">Choose a .csv file to upload by clicking "Choose a File". The file should contain each Crop Name and the corresponding Expiration Time in days.</p>
@@ -44,7 +44,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
-    "menu title title"
+    ". title title"
     ". upload ."
     ". display ."
     ;

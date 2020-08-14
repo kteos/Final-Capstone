@@ -4,7 +4,6 @@ import io.jsonwebtoken.io.IOException;
 import kong.unirest.json.JSONException;
 
 public interface SendGridDao {
-	void sendEmail();
+	void sendEmail( String user );
 //	String jsonBuilder();
-	void sendGrid() throws IOException, java.io.IOException;
 }
